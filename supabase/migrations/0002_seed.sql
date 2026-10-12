@@ -10,7 +10,7 @@ select id, d, '08:00', '14:00' from imo, unnest(array[1, 5]) as d;
 
 with to_ as (
   insert into public.locais (nome, endereco, numero, complemento, bairro, cidade, uf, cep, ordem)
-  values ('Clínica Dr. Rogato Quadros', 'Av. Dr. Júlio Rodrigues', '650', '4º andar', '', 'Teófilo Otoni', 'MG', '39803-145', 1)
+  values ('Clínica Medcenter', 'Av. Dr. Júlio Rodrigues', '650', '4º andar', '', 'Teófilo Otoni', 'MG', '39803-145', 1)
   returning id
 )
 insert into public.horarios_local (local_id, dia_semana, inicio, fim)

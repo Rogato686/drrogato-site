@@ -28,7 +28,7 @@ export const DADOS_PADRAO: SiteData = {
     },
     {
       id: 'clinica-dr-rogato-quadros',
-      nome: 'Clínica Dr. Rogato Quadros',
+      nome: 'Clínica Medcenter',
       endereco: 'Av. Dr. Júlio Rodrigues',
       numero: '650',
       complemento: '4º andar',

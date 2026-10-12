@@ -11,7 +11,7 @@ export const MEDICO = {
 
 // CFM 2.336/2023, art. 5º: estabelecimento divulga seu registro no CRM e o diretor técnico.
 export const CLINICA = {
-  nome: 'Clínica Dr. Rogato Quadros',
+  nome: 'Clínica Medcenter',
   registroCrm: 'CRM-MG 33563',
   diretorTecnico: 'Dr. Rogato Abrantes de Quadros Filho, CRM-MG 83269',
 }

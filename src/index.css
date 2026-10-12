@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-white font-sans text-grafite antialiased; }
+  h1, h2, h3, h4 { @apply font-display text-marinho; font-weight: 400; }
+  :focus-visible { outline: 3px solid #4A6596; outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8; }
+  .secao { @apply py-16 md:py-24; }
+  .rotulo { @apply font-display text-xs font-medium uppercase tracking-rotulo text-marinho-400; }
+  .titulo-secao { @apply font-display text-3xl font-light leading-tight text-marinho md:text-4xl; }
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-display text-sm font-medium uppercase tracking-wider transition-colors duration-200; }
+  .btn-primario { @apply btn bg-marinho text-white hover:bg-marinho-600; }
+  .btn-lilas { @apply btn bg-lilas text-marinho hover:bg-white; }
+  .btn-contorno-branco { @apply btn border border-white/80 text-white hover:bg-white hover:text-marinho; }
+  .btn-contorno { @apply btn border border-marinho text-marinho hover:bg-marinho hover:text-white; }
+  .cartao { @apply rounded-3xl bg-white p-6 shadow-card md:p-8; }
+  .link { @apply font-medium text-marinho underline decoration-lilas-400 underline-offset-4 hover:decoration-marinho; }
+  .prosa p { @apply mb-4 leading-relaxed; }
+  .prosa h2 { @apply mb-4 mt-10 font-display text-2xl font-light; }
+  .prosa h3 { @apply mb-3 mt-8 font-display text-xl; }
+  .prosa ul { @apply mb-4 list-disc space-y-1 pl-6; }
+  .prosa a { @apply link; }
+  .campo { @apply w-full rounded-xl border border-marinho-200 bg-white px-4 py-3 text-base text-grafite placeholder:text-marinho-300 focus:border-marinho focus:outline-none focus:ring-2 focus:ring-marinho-200; }
+  .hex-mask { clip-path: polygon(50% 0, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%); }
+}

@@ -8,14 +8,13 @@ import { Hexagono, FotoHexagono } from '../components/Hexagono'
 import { CtaFinal, Faq, TituloSecao } from '../components/Secoes'
 import {
   IconeBalanca, IconeBrasil, IconeCheck, IconeComposicao, IconeCoracao, IconeExame, IconeInstagram, IconeLocal,
-  IconeMolecula, IconePlano, IconeRaio, IconeSeta, IconeEstetoscopio, IconeVideo, IconeRelogio,
+  IconePlano, IconeRaio, IconeSeta, IconeEstetoscopio, IconeVideo, IconeRelogio,
 } from '../components/Icones'
 
 export const ICONE_AREA: Record<AreaSlug, typeof IconeBalanca> = {
   emagrecimento: IconeBalanca,
   performance: IconeRaio,
   longevidade: IconeCoracao,
-  endocrinologia: IconeMolecula,
 }
 
 const BLOCOS: Record<AreaSlug, { texto: string; bullets: string[] }> = {
@@ -25,34 +24,25 @@ const BLOCOS: Record<AreaSlug, { texto: string; bullets: string[] }> = {
       'Investigação das causas do ganho de peso',
       'Plano alimentar e de atividade física realista, em conjunto com a sua rotina',
       'Uso de medicamentos quando indicado, com segurança e acompanhamento',
-      'Foco em manter os resultados a longo prazo',
+      'Acompanhamento para manter o peso a longo prazo',
     ],
   },
   performance: {
     texto: 'Para quem treina, trabalha muito ou quer mais disposição, o objetivo é melhorar a composição corporal e a energia com base em exames, avaliação clínica e ajustes individualizados.',
     bullets: [
       'Avaliação de composição corporal por bioimpedância',
-      'Ganho de massa magra e redução de gordura com estratégia',
+      'Orientação sobre massa magra e gordura corporal, com base em exames',
       'Investigação de cansaço, sono e recuperação',
       'Acompanhamento com metas claras e mensuráveis',
     ],
   },
   longevidade: {
-    texto: 'Longevidade é viver mais e melhor. O cuidado preventivo do metabolismo reduz riscos e preserva músculo, energia e autonomia ao longo dos anos.',
+    texto: 'Longevidade com qualidade depende de prevenção. Cuidar do metabolismo ajuda a controlar fatores de risco e a preservar músculo, energia e autonomia ao longo dos anos.',
     bullets: [
       'Avaliação de risco cardiovascular e metabólico',
       'Prevenção de diabetes, gordura no fígado e perda de massa muscular',
       'Exames direcionados, sem excessos',
       'Hábitos e tratamentos com base em evidências científicas',
-    ],
-  },
-  endocrinologia: {
-    texto: 'Avaliação e acompanhamento das alterações hormonais mais comuns, com atenção aos sintomas, aos exames e ao impacto de cada uma no seu dia a dia.',
-    bullets: [
-      'Tireoide: hipotireoidismo, hipertireoidismo e nódulos',
-      'Diabetes, pré-diabetes e resistência à insulina',
-      'Colesterol e triglicerídeos alterados',
-      'Distúrbios hormonais e investigação de sintomas',
     ],
   },
 }
@@ -116,7 +106,7 @@ export default function Home() {
       <section className="secao bg-white">
         <div className="container-site">
           <TituloSecao rotulo="Áreas de atuação" titulo="Como posso te ajudar?" texto="Cada pessoa chega com um objetivo diferente. Escolha o tema que mais combina com o seu momento." centro />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {AREAS.map((a) => {
               const Icone = ICONE_AREA[a.slug]
               return (
@@ -258,10 +248,10 @@ export default function Home() {
             <p className="rotulo">Sobre o Dr. Rogato</p>
             <h2 className="titulo-secao mt-3">Visão clínica completa, cuidado próximo</h2>
             <p className="mt-5 leading-relaxed text-grafite/80">
-              Sou médico formado pela UNIFAGOC e pós-graduado em Endocrinologia pelo IPEMED. Há anos atuo em terapia intensiva e na gestão do Hospital Bom Samaritano de Teófilo Otoni, onde sou diretor clínico. Essa vivência me ensinou a olhar o paciente por inteiro.
+              Sou médico formado pela UNIFAGOC e pós-graduado em Endocrinologia pelo IPEMED (NÃO ESPECIALISTA). Há anos atuo em terapia intensiva e na gestão do Hospital Bom Samaritano de Teófilo Otoni, onde sou diretor clínico. Essa vivência me ensinou a olhar o paciente por inteiro.
             </p>
             <p className="mt-4 leading-relaxed text-grafite/80">
-              No consultório, uno essa experiência ao cuidado do metabolismo: medicina baseada em evidências, individualizada, com foco em resultados que se sustentam no dia a dia.
+              No consultório, uno essa experiência ao cuidado do metabolismo: medicina baseada em evidências, individualizada, com foco em mudanças que se sustentam no dia a dia.
             </p>
             <p className="mt-5 text-sm font-medium text-marinho">{MEDICO.nome} · {MEDICO.crm} · {MEDICO.titulo}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

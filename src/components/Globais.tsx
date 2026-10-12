@@ -12,7 +12,6 @@ const MSG_POR_PAGINA: [RegExp, string][] = [
   [/^\/tratamentos\/emagrecimento/, 'Olá! Vim pelo site, pela página de emagrecimento, e gostaria de agendar uma consulta.'],
   [/^\/tratamentos\/performance/, 'Olá! Vim pelo site, pela página de performance e composição corporal, e gostaria de agendar uma consulta.'],
   [/^\/tratamentos\/longevidade/, 'Olá! Vim pelo site, pela página de longevidade, e gostaria de agendar uma consulta.'],
-  [/^\/tratamentos\/endocrinologia/, 'Olá! Vim pelo site, pela página de endocrinologia, e gostaria de agendar uma consulta.'],
   [/^\/sobre/, 'Olá! Vim pelo site e gostaria de agendar uma consulta com o Dr. Rogato.'],
 ]
 

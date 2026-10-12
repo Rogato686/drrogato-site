@@ -17,8 +17,8 @@ export default function Tratamentos() {
     <>
       <CabecalhoPagina
         rotulo="Tratamentos"
-        titulo="Cuidado do metabolismo em quatro frentes"
-        texto="Emagrecimento, performance, longevidade e endocrinologia geral: áreas que se conversam e são avaliadas em conjunto, sempre a partir da sua história."
+        titulo="Cuidado do metabolismo em três frentes"
+        texto="Emagrecimento, performance e longevidade: áreas que se conversam e são avaliadas em conjunto, sempre a partir da sua história."
       />
 
       <section className="secao" aria-labelledby="areas-titulo">
@@ -26,7 +26,7 @@ export default function Tratamentos() {
           <h2 id="areas-titulo" className="sr-only">
             Áreas de atuação
           </h2>
-          <ul className="grid gap-6 md:grid-cols-2">
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {AREAS.map((a) => {
               const Icone = ICONES_AREA[a.icone]
               const c = CONTEUDO_AREAS[a.slug]

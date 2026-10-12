@@ -1,16 +1,54 @@
 {
-  "/": { "titulo": "Dr. Rogato | Emagrecimento, Endocrinologia e Longevidade em Teófilo Otoni – MG", "descricao": "Dr. Rogato, médico pós-graduado em Endocrinologia pelo IPEMED. Emagrecimento, performance e longevidade. Consultas presenciais em Teófilo Otoni e Malacacheta (MG) e teleconsulta para todo o Brasil." },
-  "/sobre": { "titulo": "Sobre o Dr. Rogato | Médico pós-graduado em Endocrinologia (IPEMED)", "descricao": "Conheça a trajetória do Dr. Rogato Abrantes de Quadros Filho (CRM-MG 83269): formação, experiência em UTI e gestão hospitalar e o cuidado em emagrecimento, performance e longevidade." },
-  "/tratamentos": { "titulo": "Tratamentos | Emagrecimento, Performance, Longevidade e Endocrinologia | Dr. Rogato", "descricao": "Áreas de atuação do Dr. Rogato: emagrecimento e obesidade, performance e composição corporal, longevidade e saúde metabólica e endocrinologia geral. Teófilo Otoni, Malacacheta e online." },
-  "/tratamentos/emagrecimento": { "titulo": "Emagrecimento e obesidade em Teófilo Otoni e online | Dr. Rogato", "descricao": "Tratamento médico para emagrecimento e obesidade com avaliação completa, exames e plano individualizado. Presencial em Teófilo Otoni e Malacacheta (MG) e teleconsulta para todo o Brasil." },
-  "/tratamentos/performance": { "titulo": "Performance e composição corporal | Dr. Rogato", "descricao": "Acompanhamento médico para melhorar composição corporal, energia e desempenho, com bioimpedância e exames. Teófilo Otoni, Malacacheta e teleconsulta." },
-  "/tratamentos/longevidade": { "titulo": "Longevidade e saúde metabólica | Dr. Rogato", "descricao": "Prevenção e cuidado do metabolismo para envelhecer com saúde: avaliação de risco cardiometabólico, exames e plano individualizado. Presencial no Vale do Mucuri e online." },
-  "/tratamentos/endocrinologia": { "titulo": "Endocrinologia geral: tireoide, diabetes e hormônios | Dr. Rogato", "descricao": "Atendimento em endocrinologia geral: tireoide, diabetes, pré-diabetes, resistência à insulina e distúrbios hormonais. Teófilo Otoni, Malacacheta e teleconsulta." },
-  "/consultorio": { "titulo": "Consultórios em Teófilo Otoni e Malacacheta – MG | Dr. Rogato", "descricao": "Endereços, mapas, dias e horários dos consultórios do Dr. Rogato em Teófilo Otoni e Malacacheta (Vale do Mucuri, MG). Agende pelo WhatsApp." },
-  "/telemedicina": { "titulo": "Teleconsulta em endocrinologia e emagrecimento para todo o Brasil | Dr. Rogato", "descricao": "Consulta online para emagrecimento, metabolismo e saúde hormonal com o Dr. Rogato, médico pós-graduado em Endocrinologia. Receitas e pedidos digitais válidos em todo o Brasil." },
-  "/contato": { "titulo": "Contato e agendamento | Dr. Rogato", "descricao": "Fale com o Dr. Rogato: WhatsApp (33) 99873-5429, e-mail, Instagram e endereços dos consultórios em Teófilo Otoni e Malacacheta (MG)." },
-  "/links": { "titulo": "Dr. Rogato | Links", "descricao": "Agende sua consulta presencial ou teleconsulta com o Dr. Rogato e acesse o WhatsApp, o Instagram e o site." },
-  "/politica-de-privacidade": { "titulo": "Política de Privacidade | Dr. Rogato", "descricao": "Como o site drrogato.com.br trata seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD)." },
-  "/termos-de-uso": { "titulo": "Termos de Uso | Dr. Rogato", "descricao": "Termos de uso do site drrogato.com.br." },
-  "/politica-de-cookies": { "titulo": "Política de Cookies | Dr. Rogato", "descricao": "Quais cookies o site drrogato.com.br usa e como gerenciar suas preferências." }
+  "/": {
+    "titulo": "Dr. Rogato | Emagrecimento, Performance e Longevidade em Teófilo Otoni – MG",
+    "descricao": "Dr. Rogato, médico pós-graduado em Endocrinologia pelo IPEMED, NÃO ESPECIALISTA. Emagrecimento, performance e longevidade. Consultas presenciais em Teófilo Otoni e Malacacheta (MG) e teleconsulta para todo o Brasil."
+  },
+  "/sobre": {
+    "titulo": "Sobre o Dr. Rogato | Médico em Teófilo Otoni – MG",
+    "descricao": "Conheça a trajetória do Dr. Rogato Abrantes de Quadros Filho (CRM-MG 83269), médico pós-graduado em Endocrinologia pelo IPEMED, NÃO ESPECIALISTA: formação, experiência em UTI e gestão hospitalar."
+  },
+  "/tratamentos": {
+    "titulo": "Tratamentos | Emagrecimento, Performance e Longevidade | Dr. Rogato",
+    "descricao": "Áreas de atendimento do Dr. Rogato: emagrecimento e controle de peso, performance e composição corporal, longevidade e saúde metabólica. Teófilo Otoni, Malacacheta e online."
+  },
+  "/tratamentos/emagrecimento": {
+    "titulo": "Emagrecimento e controle de peso em Teófilo Otoni e online | Dr. Rogato",
+    "descricao": "Acompanhamento médico para emagrecimento com avaliação completa, exames e plano individualizado. Presencial em Teófilo Otoni e Malacacheta (MG) e teleconsulta para todo o Brasil."
+  },
+  "/tratamentos/performance": {
+    "titulo": "Performance e composição corporal | Dr. Rogato",
+    "descricao": "Acompanhamento médico da composição corporal, da energia e do desempenho, com bioimpedância e exames. Teófilo Otoni, Malacacheta e teleconsulta."
+  },
+  "/tratamentos/longevidade": {
+    "titulo": "Longevidade e saúde metabólica | Dr. Rogato",
+    "descricao": "Prevenção e cuidado do metabolismo para envelhecer com saúde: avaliação de risco cardiometabólico, exames e plano individualizado. Presencial no Vale do Mucuri e online."
+  },
+  "/consultorio": {
+    "titulo": "Consultórios em Teófilo Otoni e Malacacheta – MG | Dr. Rogato",
+    "descricao": "Endereços, mapas, dias e horários dos consultórios do Dr. Rogato em Teófilo Otoni e Malacacheta (Vale do Mucuri, MG). Agende pelo WhatsApp."
+  },
+  "/telemedicina": {
+    "titulo": "Teleconsulta em emagrecimento, performance e longevidade para todo o Brasil | Dr. Rogato",
+    "descricao": "Consulta online para emagrecimento, performance e longevidade com o Dr. Rogato, médico pós-graduado em Endocrinologia pelo IPEMED, NÃO ESPECIALISTA. Receitas e pedidos digitais válidos em todo o Brasil."
+  },
+  "/contato": {
+    "titulo": "Contato e agendamento | Dr. Rogato",
+    "descricao": "Fale com o Dr. Rogato: WhatsApp (33) 99873-5429, e-mail, Instagram e endereços dos consultórios em Teófilo Otoni e Malacacheta (MG)."
+  },
+  "/links": {
+    "titulo": "Dr. Rogato | Links",
+    "descricao": "Agende sua consulta presencial ou teleconsulta com o Dr. Rogato e acesse o WhatsApp, o Instagram e o site."
+  },
+  "/politica-de-privacidade": {
+    "titulo": "Política de Privacidade | Dr. Rogato",
+    "descricao": "Como o site drrogato.com.br trata seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD)."
+  },
+  "/termos-de-uso": {
+    "titulo": "Termos de Uso | Dr. Rogato",
+    "descricao": "Termos de uso do site drrogato.com.br."
+  },
+  "/politica-de-cookies": {
+    "titulo": "Política de Cookies | Dr. Rogato",
+    "descricao": "Quais cookies o site drrogato.com.br usa e como gerenciar suas preferências."
+  }
 }

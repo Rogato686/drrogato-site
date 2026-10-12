@@ -19,7 +19,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1fr_1.2fr_1.2fr_1.2fr]">
           <div className="md:col-span-2 lg:col-span-4 lg:flex lg:items-end lg:justify-between lg:gap-10 lg:border-b lg:border-white/10 lg:pb-10">
             <div>
-              <Logo versao="horizontal" cor="branco" className="h-auto w-[360px] max-w-full" alt="Dr. Rogato: Endocrinologia, Emagrecimento, Performance, Longevidade" />
+              <Logo versao="horizontal-sem-tagline" cor="branco" className="h-auto w-[300px] max-w-full" alt="Dr. Rogato" />
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-lilas-200">
                 Cuidado médico completo para o seu metabolismo, com ciência, escuta e um plano feito para a sua vida.
               </p>
@@ -97,7 +97,7 @@ export function Footer() {
             </li>
           </ul>
           <p className="mt-4">
-            © {ano} {MEDICO.nome} · Médico · {MEDICO.crm} · Pós-graduado em Endocrinologia (IPEMED). Todos os direitos reservados.
+            © {ano} {MEDICO.nome} · Médico · {MEDICO.crm} · {MEDICO.tituloCurto}. Todos os direitos reservados.
           </p>
         </div>
       </div>

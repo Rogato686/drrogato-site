@@ -51,7 +51,7 @@ export function Header() {
             <>
               {/* Com tagline só quando há largura (≥ 360px de logo) e o header não está compacto */}
               <Logo versao="horizontal-sem-tagline" cor="azul" className={`h-7 w-auto ${rolou ? '' : 'xl:hidden'}`} />
-              {!rolou && <Logo versao="horizontal" cor="azul" className="hidden h-12 w-auto xl:block" />}
+              {!rolou && <Logo versao="horizontal-sem-tagline" cor="azul" className="hidden h-9 w-auto xl:block" />}
             </>
           )}
         </Link>

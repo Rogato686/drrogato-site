@@ -12,7 +12,7 @@ type ItemLinha = { periodo: string; titulo: string; lugar: string; tipo: 'formac
 const LINHA_DO_TEMPO: ItemLinha[] = [
   { periodo: 'Desde 07/2026', titulo: 'Médico plantonista da UTI', lugar: 'Hospital Regional de Teófilo Otoni', tipo: 'experiencia' },
   { periodo: 'Desde 05/2024', titulo: 'Diretor Clínico', lugar: 'Hospital Bom Samaritano de Teófilo Otoni', tipo: 'experiencia' },
-  { periodo: '2023 a 2025', titulo: 'Pós-graduação em Endocrinologia', lugar: 'IPEMED, Belo Horizonte/MG', tipo: 'formacao' },
+  { periodo: '2023 a 2025', titulo: 'Pós-graduação em Endocrinologia (NÃO ESPECIALISTA)', lugar: 'IPEMED, Belo Horizonte/MG', tipo: 'formacao' },
   { periodo: 'Desde 06/2022', titulo: 'Coordenador da Clínica Médica', lugar: 'Hospital Bom Samaritano de Teófilo Otoni', tipo: 'experiencia' },
   { periodo: 'Desde 03/2022', titulo: 'Médico plantonista da UTI', lugar: 'Hospital Bom Samaritano de Teófilo Otoni', tipo: 'experiencia' },
   { periodo: '2014 a 2020', titulo: 'Graduação em Medicina', lugar: 'UNIFAGOC, Ubá/MG', tipo: 'formacao' },
@@ -81,8 +81,8 @@ export default function Sobre() {
                 atento à segurança.
               </p>
               <p>
-                Com a pós-graduação em Endocrinologia pelo IPEMED, direcionou o consultório para o metabolismo e a saúde hormonal, com atuação em
-                emagrecimento, performance, longevidade e endocrinologia geral. Atende presencialmente em Teófilo Otoni e Malacacheta, no Vale do
+                Com a pós-graduação em Endocrinologia pelo IPEMED (NÃO ESPECIALISTA), direcionou o consultório para o cuidado do metabolismo, com atendimento em
+                emagrecimento, performance e longevidade. Atende presencialmente em Teófilo Otoni e Malacacheta, no Vale do
                 Mucuri, e por teleconsulta para todo o Brasil.
               </p>
             </div>
@@ -106,7 +106,7 @@ export default function Sobre() {
           <TituloSecao
             rotulo="Trajetória"
             titulo={<span id="trajetoria-titulo">Formação e experiência</span>}
-            texto="Medicina intensiva, gestão hospitalar e endocrinologia: uma trajetória que une a visão do todo ao cuidado do metabolismo."
+            texto="Medicina intensiva, gestão hospitalar e metabolismo: uma trajetória que une a visão do todo ao cuidado do metabolismo."
           />
           <ol className="relative mt-12 md:mx-auto md:max-w-4xl">
             <span className="absolute bottom-6 left-[23px] top-6 w-px bg-marinho-200 md:left-1/2 md:-translate-x-1/2" aria-hidden="true" />

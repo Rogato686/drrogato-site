@@ -50,7 +50,7 @@ const NAO_INDICADO = [
 const QUANDO = [
   'Ganho de peso ou dificuldade para emagrecer',
   'Cansaço e falta de energia sem explicação',
-  'Suspeita de alterações hormonais ou da tireoide',
+  'Dúvidas sobre exames de rotina',
   'Revisão de exames recentes',
   'Ajuste de medicação',
   'Segunda opinião',
@@ -89,7 +89,7 @@ export default function Telemedicina() {
             Teleconsulta: atendimento de onde você estiver
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-lilas-200">
-            Consulta por videochamada para emagrecimento, performance, longevidade e endocrinologia, com o mesmo cuidado do consultório e
+            Consulta por videochamada para emagrecimento, performance e longevidade, com o mesmo cuidado do consultório e
             documentos digitais válidos em todo o país.
           </p>
 

@@ -77,7 +77,7 @@ export const DADOS_PADRAO: SiteData = {
   conteudo: {
     hero_titulo: 'Seu metabolismo, sua energia e sua longevidade merecem um cuidado completo',
     hero_subtitulo:
-      'Sou o Dr. Rogato, médico pós-graduado em Endocrinologia pelo IPEMED. Cuido de emagrecimento, performance, longevidade e saúde hormonal com avaliação detalhada e um plano feito para a sua rotina.',
+      'Sou o Dr. Rogato e cuido de emagrecimento, performance, longevidade e saúde metabólica com avaliação detalhada e um plano feito para a sua rotina.',
     instagram_posts: [],
     ga4_id: '',
     gtm_id: '',

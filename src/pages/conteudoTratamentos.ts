@@ -114,35 +114,4 @@ export const CONTEUDO_AREAS: Record<AreaSlug, ConteudoArea> = {
       ['Quais exames vou precisar fazer?', 'Depende do seu histórico e da avaliação clínica. Os exames são escolhidos para responder a perguntas concretas sobre a sua saúde.'],
     ]),
   },
-  endocrinologia: {
-    chamada: 'Tireoide, diabetes e hormônios com avaliação cuidadosa',
-    introducao:
-      'Os hormônios regulam metabolismo, energia, peso, humor e muitas outras funções. Alterações hormonais podem ser silenciosas no início, por isso a avaliação clínica atenta e os exames bem indicados são importantes para o diagnóstico e o acompanhamento.',
-    paraQuem: [
-      'Quem tem ou suspeita de alterações na tireoide, como hipotireoidismo, hipertireoidismo ou nódulos',
-      'Pessoas com diabetes tipo 2, pré-diabetes ou resistência à insulina',
-      'Quem tem exames hormonais alterados e precisa de orientação',
-      'Mulheres com síndrome dos ovários policísticos ou irregularidade menstrual',
-    ],
-    sinais: [
-      'Cansaço persistente, sonolência ou intolerância ao frio ou ao calor',
-      'Alterações de peso sem causa aparente',
-      'Sede excessiva, aumento da urina ou glicose alta nos exames',
-      'Queda de cabelo, pele seca, palpitações ou alterações do humor',
-      'Ciclos menstruais irregulares, acne ou aumento de pelos',
-    ],
-    abordagem: [
-      { titulo: 'Escuta e exame clínico', texto: 'Sintomas, histórico pessoal e familiar, medicamentos em uso e exame físico direcionado.' },
-      { titulo: 'Investigação', texto: 'Exames laboratoriais e de imagem quando indicados, com explicação clara de cada resultado.' },
-      { titulo: 'Tratamento', texto: 'Conduta baseada nas diretrizes atuais, com metas definidas e orientação sobre o uso correto dos medicamentos.' },
-      { titulo: 'Seguimento', texto: 'Retornos programados para monitorar a resposta, ajustar doses e prevenir complicações.' },
-    ],
-    observacao: AVISO,
-    faq: faq('endocrinologia', [
-      ['Hipotireoidismo engorda?', 'Pode contribuir para um pequeno ganho de peso, mas raramente explica sozinho um aumento importante. Por isso a avaliação considera outros fatores além da tireoide.'],
-      ['Pré-diabetes tem volta?', 'Em muitos casos, mudanças de hábitos e acompanhamento adequado ajudam a normalizar a glicose e reduzir o risco de evolução para diabetes. A resposta varia de pessoa para pessoa.'],
-      ['Preciso levar exames antigos?', 'Sim, se tiver. Exames anteriores ajudam a entender a evolução e podem evitar repetições desnecessárias.'],
-      ['Diabetes pode ser acompanhado por teleconsulta?', 'Sim. Exames, glicemias registradas e a lista de medicamentos podem ser avaliados por vídeo, com prescrição digital válida em todo o Brasil.'],
-    ]),
-  },
 }

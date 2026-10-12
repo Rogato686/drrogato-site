@@ -38,7 +38,7 @@ export function gerarSchema(d: Pick<SiteData, 'locais' | 'redes'>, siteUrl: stri
         '@id': `${siteUrl}/#medico`,
         name: 'Dr. Rogato Abrantes de Quadros Filho',
         alternateName: 'Dr. Rogato',
-        description: 'Médico pós-graduado em Endocrinologia pelo IPEMED, com atuação em endocrinologia, emagrecimento, performance e longevidade. CRM-MG 83269.',
+        description: 'Médico pós-graduado em Endocrinologia pelo IPEMED, NÃO ESPECIALISTA. Atendimento em emagrecimento, performance e longevidade. CRM-MG 83269.',
         url: siteUrl,
         image: `${siteUrl}/foto/dr-rogato-hero.jpg`,
         telephone: tel,

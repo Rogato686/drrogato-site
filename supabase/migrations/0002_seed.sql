@@ -23,7 +23,7 @@ values (1, '5533998735429', 'rogatoquadros@live.com', 'https://instagram.com/rog
 
 insert into public.conteudo_site (id, hero_titulo, hero_subtitulo) values (1,
   'Seu metabolismo, sua energia e sua longevidade merecem um cuidado completo',
-  'Sou o Dr. Rogato, médico pós-graduado em Endocrinologia pelo IPEMED. Cuido de emagrecimento, performance, longevidade e saúde hormonal com avaliação detalhada e um plano feito para a sua rotina.');
+  'Sou o Dr. Rogato e cuido de emagrecimento, performance, longevidade e saúde metabólica com avaliação detalhada e um plano feito para a sua rotina.');
 
 insert into public.faq (pagina, ordem, pergunta, resposta) values
   ('home', 1, 'O atendimento é particular ou por convênio?', 'As informações sobre valores, convênios e reembolso são passadas pelo WhatsApp no momento do agendamento. Se o seu plano oferece reembolso, você recebe os documentos necessários para solicitá-lo.'),

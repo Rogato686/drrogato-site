@@ -6,7 +6,7 @@
 //   NOTIFICAR_DE     remetente (padrão: "Site Dr. Rogato <onboarding@resend.dev>"; troque por um domínio verificado no Resend)
 //   ORIGENS_PERMITIDAS  opcional, lista separada por vírgula (padrão: https://drrogato.com.br,https://www.drrogato.com.br)
 //
-// Publicação: supabase functions deploy notificar-contato --no-verify-jwt
+// Publicação: supabase functions deploy notificar-contato (com verificação de JWT; o site envia a chave anon)
 // Chamada pelo site: supabase.functions.invoke('notificar-contato', { body: { nome, telefone, email, cidade, modalidade, mensagem } })
 //
 // Proteção contra abuso: quando SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY estão disponíveis (padrão nas Edge Functions),

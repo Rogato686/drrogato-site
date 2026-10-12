@@ -37,6 +37,6 @@ insert into public.faq (pagina, ordem, pergunta, resposta) values
   ('telemedicina', 1, 'Qual plataforma é usada na videochamada?', 'Uma plataforma segura de videochamada. O link chega pelo WhatsApp ou e-mail antes do horário marcado e funciona no celular ou no computador, sem instalar nada na maioria dos casos.'),
   ('telemedicina', 2, 'Como envio meus exames?', 'Você pode enviar os exames em PDF ou foto pelo WhatsApp antes da consulta, ou mostrá-los durante a chamada.'),
   ('telemedicina', 3, 'A receita digital vale em qualquer farmácia?', 'Sim. A receita com assinatura eletrônica qualificada é aceita em farmácias de todo o país. Alguns medicamentos controlados têm regras específicas, que são explicadas durante a consulta.'),
-  ('telemedicina', 4, 'E se a conexão cair durante a consulta?', 'A chamada é retomada pelo mesmo link. Se não for possível, entramos em contato pelo WhatsApp para continuar ou remarcar sem custo.'),
+  ('telemedicina', 4, 'E se a conexão cair durante a consulta?', 'A chamada é retomada pelo mesmo link. Se não for possível, entramos em contato pelo WhatsApp para continuar ou remarcar.'),
   ('telemedicina', 5, 'Preciso fazer bioimpedância?', 'Na teleconsulta, a composição corporal pode ser acompanhada com exames feitos perto de você. Quando a avaliação presencial for importante, isso é orientado na consulta.'),
   ('telemedicina', 6, 'Meus dados ficam protegidos?', 'Sim. A teleconsulta segue as mesmas regras de sigilo médico da consulta presencial e a LGPD, e as informações ficam registradas em prontuário eletrônico.');

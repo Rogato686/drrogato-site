@@ -4,45 +4,31 @@ O código está pronto. Faltam só as contas, que precisam ser criadas por você
 
 ## 1. Supabase (banco de dados e login do painel)
 
-1. Crie uma conta gratuita em https://supabase.com e clique em **New project**.
-   - Nome: `drrogato-site` · Região: **South America (São Paulo)** · anote a senha do banco.
-2. No projeto, abra **SQL Editor → New query**, cole e rode, nesta ordem, o conteúdo dos arquivos:
-   1. `supabase/migrations/0001_schema.sql` (tabelas e regras de segurança)
-   2. `supabase/migrations/0002_seed.sql` (os 2 consultórios reais, contatos e perguntas frequentes)
-3. Crie o seu usuário de administrador: **Authentication → Users → Add user → Create new user**
-   - E-mail: `rogatoquadros@live.com` · escolha uma senha · marque **Auto Confirm User**.
-4. Volte ao **SQL Editor** e rode `supabase/migrations/0003_primeiro_admin.sql`. Isso libera o painel para esse e-mail.
+Já feito: o projeto `drrogato-site` (São Paulo) foi criado na sua conta Supabase, com tabelas, regras de segurança,
+os 2 consultórios reais, contatos, perguntas frequentes e a função de e-mail `notificar-contato`.
+Endereço e chave pública já estão em `.env.production` (a chave anon é pública por natureza; quem protege os dados são as regras RLS).
+
+Falta você (3 minutos), em https://supabase.com/dashboard/project/qksctznipxugqixcogvy :
+1. **Authentication → Users → Add user → Create new user**: e-mail `rogatoquadros@live.com`, uma senha forte, marque **Auto Confirm User**.
+2. **SQL Editor → New query**: cole e rode o conteúdo de `supabase/migrations/0003_primeiro_admin.sql`. Isso libera o painel para esse e-mail.
    - Para a secretária: crie o usuário dela do mesmo jeito e rode o mesmo SQL trocando o e-mail e o nome.
-5. Em **Authentication → URL Configuration**:
+3. **Authentication → URL Configuration**:
    - Site URL: `https://drrogato.com.br`
    - Redirect URLs: `https://drrogato.com.br/admin/nova-senha` (usado na recuperação de senha)
-6. Em **Project Settings → API**, copie o **Project URL** e a chave **anon public**. Você vai usá-los na Vercel.
 
 ### E-mail de aviso quando alguém preencher o formulário (opcional)
 1. Crie uma conta gratuita em https://resend.com e gere uma **API Key**.
-2. Instale o Supabase CLI (https://supabase.com/docs/guides/cli) e, na pasta do projeto, rode:
-   ```
-   supabase login
-   supabase link --project-ref SEU-PROJECT-REF
-   supabase secrets set RESEND_API_KEY=re_xxx NOTIFICAR_PARA=rogatoquadros@live.com
-   # opcionais: NOTIFICAR_DE="Site Dr. Rogato <contato@drrogato.com.br>" (exige domínio verificado no Resend)
-   #            ORIGENS_PERMITIDAS=https://drrogato.com.br,https://www.drrogato.com.br
-   supabase functions deploy notificar-contato --no-verify-jwt
-   ```
+2. No Supabase: **Edge Functions → Secrets**, adicione `RESEND_API_KEY` com essa chave (e, se quiser, `NOTIFICAR_PARA` com outro e-mail).
+   - Opcionais: `NOTIFICAR_DE` (ex.: `Site Dr. Rogato <contato@drrogato.com.br>`, exige domínio verificado no Resend) e `ORIGENS_PERMITIDAS`.
    Por segurança, a função só envia e-mail de mensagens que acabaram de ser gravadas no banco (evita spam).
    Sem isso o formulário continua funcionando: as mensagens ficam salvas no painel, em **Mensagens**.
 
 ## 2. Vercel (hospedagem, HTTPS automático)
 
-1. Coloque o código num repositório do GitHub (ex.: `drrogato-site`).
+1. O código já está em https://github.com/Rogato686/drrogato-site.
 2. Crie uma conta em https://vercel.com com o seu GitHub e clique em **Add New → Project → Import** nesse repositório.
    - Framework: **Vite** (detectado sozinho). Build: `npm run build`. Output: `dist`.
-3. Em **Environment Variables**, cadastre:
-   | Nome | Valor |
-   |---|---|
-   | `VITE_SUPABASE_URL` | Project URL do Supabase |
-   | `VITE_SUPABASE_ANON_KEY` | chave anon public do Supabase |
-   | `VITE_SITE_URL` | `https://drrogato.com.br` |
+3. Não precisa cadastrar variáveis: o endereço e a chave pública do Supabase já estão no arquivo `.env.production`.
 4. Clique em **Deploy**. Em 1 a 2 minutos o site abre num endereço `.vercel.app` para você conferir.
 
 ## 3. Domínio no Registro.br

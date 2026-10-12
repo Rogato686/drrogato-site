@@ -6,6 +6,7 @@ import { IconeCalendario, IconeInfo, IconeLocal, IconeRelogio, IconeSeta, IconeT
 import { useSite } from '../lib/SiteDataContext'
 import { enderecoCompleto, horariosPorDia, linkEmbedMaps, linkMaps, linkWaze, textoExcecao } from '../lib/formatar'
 import type { Excecao, Local } from '../lib/types'
+import { CLINICA } from '../lib/constantes'
 
 const hojeISO = () => {
   const d = new Date()
@@ -34,6 +35,11 @@ function CartaoLocal({ l, indice }: { l: Local; indice: number }) {
           <h2 id={tituloId} className="mt-2 font-display text-3xl font-light text-marinho">
             {l.nome}
           </h2>
+          {l.nome.trim().toLowerCase() === CLINICA.nome.toLowerCase() && (
+            <p className="mt-2 text-xs leading-relaxed text-grafite/70">
+              Registro no {CLINICA.registroCrm} · Diretor técnico: {CLINICA.diretorTecnico}
+            </p>
+          )}
 
           {excecoes.length > 0 && (
             <div role="note" className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">

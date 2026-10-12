@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 import { RedesSociais } from './RedesSociais'
 import { useSite } from '../lib/SiteDataContext'
-import { AREAS, MEDICO } from '../lib/constantes'
+import { AREAS, CLINICA, MEDICO } from '../lib/constantes'
 import { MENU } from './Header'
 import { horariosPorDia } from '../lib/formatar'
 import { linkWhatsApp, mensagemAgendamento } from '../lib/whatsapp'
@@ -84,6 +84,9 @@ export function Footer() {
         <div className="mt-12 border-t border-white/10 pt-8 text-xs leading-relaxed text-lilas-300">
           <p>
             <strong className="font-medium text-lilas-100">Responsável técnico:</strong> {MEDICO.nome} · {MEDICO.crm} · {MEDICO.titulo}.
+          </p>
+          <p className="mt-2">
+            {CLINICA.nome} · Registro no {CLINICA.registroCrm} · Diretor técnico: {CLINICA.diretorTecnico}.
           </p>
           <p className="mt-2">As informações deste site têm caráter educativo e não substituem a consulta médica.</p>
           <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">

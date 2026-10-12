@@ -9,6 +9,13 @@ export const MEDICO = {
   atuacao: 'Emagrecimento, Performance e Longevidade',
 }
 
+// CFM 2.336/2023, art. 5º: estabelecimento divulga seu registro no CRM e o diretor técnico.
+export const CLINICA = {
+  nome: 'Clínica Dr. Rogato Quadros',
+  registroCrm: 'CRM-MG 33563',
+  diretorTecnico: 'Dr. Rogato Abrantes de Quadros Filho, CRM-MG 83269',
+}
+
 export const DIAS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
 export const DIAS_CURTOS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
 

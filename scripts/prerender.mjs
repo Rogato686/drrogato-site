@@ -5,7 +5,10 @@ import path from 'node:path'
 import { gerarSchema } from '../src/lib/schema.ts'
 import { DADOS_PADRAO } from '../src/lib/seed.ts'
 
-const SITE = (process.env.VITE_SITE_URL || 'https://drrogato.com.br').replace(/\/$/, '')
+import { loadEnv } from 'vite'
+
+const env = { ...loadEnv('production', path.resolve(import.meta.dirname, '..'), 'VITE_'), ...process.env }
+const SITE = (env.VITE_SITE_URL || 'https://drrogato.com.br').replace(/\/$/, '')
 const dist = path.resolve(import.meta.dirname, '../dist')
 const rotas = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, '../src/seo-rotas.json'), 'utf8'))
 const base = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')

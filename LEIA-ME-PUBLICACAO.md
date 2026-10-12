@@ -10,9 +10,9 @@ Endereço e chave pública já estão em `.env.production` (a chave anon é púb
 
 Falta você (3 minutos), em https://supabase.com/dashboard/project/qksctznipxugqixcogvy :
 1. **Authentication → Users → Add user → Create new user**: e-mail `rogatoquadros@live.com`, uma senha forte, marque **Auto Confirm User**.
-2. **SQL Editor → New query**: cole e rode o conteúdo de `supabase/migrations/0003_primeiro_admin.sql`. Isso libera o painel para esse e-mail.
-   - Para a secretária: crie o usuário dela do mesmo jeito e rode o mesmo SQL trocando o e-mail e o nome.
-3. **Authentication → URL Configuration**:
+   Pronto: esse e-mail vira administrador automaticamente (não precisa rodar SQL).
+   - Para a secretária: rode no SQL Editor `insert into public.admins_autorizados (email, nome) values ('email-dela', 'Nome');` e depois crie o usuário dela.
+2. **Authentication → URL Configuration**:
    - Site URL: `https://drrogato.com.br`
    - Redirect URLs: `https://drrogato.com.br/admin/nova-senha` (usado na recuperação de senha)
 

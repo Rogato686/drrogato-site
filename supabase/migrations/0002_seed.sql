@@ -19,7 +19,7 @@ select id, 4, '08:30', '13:00' from to_;
 insert into public.config_telemedicina (id, ativo) values (1, true);
 
 insert into public.redes_sociais (id, whatsapp, email, instagram)
-values (1, '5533991026307', 'rogatoquadros@live.com', 'https://instagram.com/rogatoquadros');
+values (1, '5533998735429', 'rogatoquadros@live.com', 'https://instagram.com/rogatoquadros');
 
 insert into public.conteudo_site (id, hero_titulo, hero_subtitulo) values (1,
   'Seu metabolismo, sua energia e sua longevidade merecem um cuidado completo',
@@ -27,7 +27,7 @@ insert into public.conteudo_site (id, hero_titulo, hero_subtitulo) values (1,
 
 insert into public.faq (pagina, ordem, pergunta, resposta) values
   ('home', 1, 'O atendimento é particular ou por convênio?', 'As informações sobre valores, convênios e reembolso são passadas pelo WhatsApp no momento do agendamento. Se o seu plano oferece reembolso, você recebe os documentos necessários para solicitá-lo.'),
-  ('home', 2, 'Como faço para agendar?', 'Pelo WhatsApp (33) 99102-6307. Basta tocar em qualquer botão "Agendar" do site e a mensagem já vai pronta, indicando se você prefere a consulta presencial ou a teleconsulta.'),
+  ('home', 2, 'Como faço para agendar?', 'Pelo WhatsApp (33) 99873-5429. Basta tocar em qualquer botão "Agendar" do site e a mensagem já vai pronta, indicando se você prefere a consulta presencial ou a teleconsulta.'),
   ('home', 3, 'Como funciona o retorno?', 'O retorno faz parte do acompanhamento: nele revisamos os exames solicitados, avaliamos sua evolução e ajustamos o plano. O prazo e as condições são informados no agendamento.'),
   ('home', 4, 'A receita da teleconsulta é válida?', 'Sim. Receitas, pedidos de exame e atestados são emitidos com assinatura eletrônica qualificada e têm validade em todo o Brasil, conforme a Lei 14.510/2022 e a Resolução CFM 2.314/2022.'),
   ('home', 5, 'O que devo levar na primeira consulta?', 'Documento com foto, exames dos últimos 12 meses, a lista dos medicamentos e suplementos que você usa (com as doses) e, se tiver, relatórios de outros médicos.'),

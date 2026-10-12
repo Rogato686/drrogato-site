@@ -30,7 +30,7 @@ export type ConfigTelemedicina = {
 }
 
 export type RedesSociais = {
-  whatsapp: string // só dígitos com DDI, ex.: 5533991026307
+  whatsapp: string // só dígitos com DDI, ex.: 5533998735429
   email: string
   instagram: string
   youtube: string

@@ -48,7 +48,7 @@ export const DADOS_PADRAO: SiteData = {
   ],
   telemedicina: { ativo: true, horarios: [], observacoes: '', agenda_url: '' },
   redes: {
-    whatsapp: '5533991026307',
+    whatsapp: '5533998735429',
     email: 'rogatoquadros@live.com',
     instagram: 'https://instagram.com/rogatoquadros',
     youtube: '',
@@ -59,7 +59,7 @@ export const DADOS_PADRAO: SiteData = {
   },
   faq: [
     { id: 'f1', pagina: 'home', ordem: 1, ativo: true, pergunta: 'O atendimento é particular ou por convênio?', resposta: 'As informações sobre valores, convênios e reembolso são passadas pelo WhatsApp no momento do agendamento. Se o seu plano oferece reembolso, você recebe os documentos necessários para solicitá-lo.' },
-    { id: 'f2', pagina: 'home', ordem: 2, ativo: true, pergunta: 'Como faço para agendar?', resposta: 'Pelo WhatsApp (33) 99102-6307. Basta tocar em qualquer botão "Agendar" do site e a mensagem já vai pronta, indicando se você prefere a consulta presencial ou a teleconsulta.' },
+    { id: 'f2', pagina: 'home', ordem: 2, ativo: true, pergunta: 'Como faço para agendar?', resposta: 'Pelo WhatsApp (33) 99873-5429. Basta tocar em qualquer botão "Agendar" do site e a mensagem já vai pronta, indicando se você prefere a consulta presencial ou a teleconsulta.' },
     { id: 'f3', pagina: 'home', ordem: 3, ativo: true, pergunta: 'Como funciona o retorno?', resposta: 'O retorno faz parte do acompanhamento: nele revisamos os exames solicitados, avaliamos sua evolução e ajustamos o plano. O prazo e as condições são informados no agendamento.' },
     { id: 'f4', pagina: 'home', ordem: 4, ativo: true, pergunta: 'A receita da teleconsulta é válida?', resposta: 'Sim. Receitas, pedidos de exame e atestados são emitidos com assinatura eletrônica qualificada e têm validade em todo o Brasil, conforme a Lei 14.510/2022 e a Resolução CFM 2.314/2022.' },
     { id: 'f5', pagina: 'home', ordem: 5, ativo: true, pergunta: 'O que devo levar na primeira consulta?', resposta: 'Documento com foto, exames dos últimos 12 meses, a lista dos medicamentos e suplementos que você usa (com as doses) e, se tiver, relatórios de outros médicos.' },

@@ -14,7 +14,7 @@ const REDES: { k: Exclude<keyof RedesSociais, 'whatsapp' | 'email'>; rotulo: str
   { k: 'doctoralia', rotulo: 'Doctoralia', dominio: /(^|\.)doctoralia\.com\.br$/, ex: 'https://www.doctoralia.com.br/…' },
 ]
 
-/** 5533991026307 → (33) 99102-6307 */
+/** 5533998735429 → (33) 99873-5429 */
 export function formatarWhats(d: string) {
   const n = d.replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '')
   if (n.length === 11) return `(${n.slice(0, 2)}) ${n.slice(2, 7)}-${n.slice(7)}`
@@ -58,7 +58,7 @@ export default function Contatos() {
     if (!f) return
     const e: Record<string, string> = {}
     const whats = normalizarWhats(f.whatsapp)
-    if (whats === null) e.whatsapp = 'Número inválido. Informe DDD e número, ex.: (33) 99102-6307.'
+    if (whats === null) e.whatsapp = 'Número inválido. Informe DDD e número, ex.: (33) 99873-5429.'
     const email = f.email.trim().toLowerCase()
     if (!emailValido(email)) e.email = 'E-mail inválido.'
     const urls = {} as Record<string, string>
@@ -93,7 +93,7 @@ export default function Contatos() {
                 type="tel"
                 inputMode="tel"
                 className="campo"
-                placeholder="(33) 99102-6307"
+                placeholder="(33) 99873-5429"
                 value={f.whatsapp}
                 onChange={(e) => set('whatsapp', e.target.value)}
                 onBlur={() => {

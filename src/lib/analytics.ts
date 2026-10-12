@@ -1,5 +1,6 @@
-// GA4, GTM e Meta Pixel: só carregam depois do consentimento de cookies de análise/marketing.
-type W = Window & { dataLayer?: unknown[]; gtag?: (...a: unknown[]) => void; fbq?: ((...a: unknown[]) => void) & { q?: unknown[] } }
+// GA4 usa o Modo de Consentimento v2 (padrão negado, definido no <head> do index.html): a tag carrega sempre,
+// mas só grava cookies depois do aceite. GTM e Meta Pixel só carregam depois do consentimento.
+type W = Window & { __ga4?: string; dataLayer?: unknown[]; gtag?: (...a: unknown[]) => void; fbq?: ((...a: unknown[]) => void) & { q?: unknown[] } }
 const w = () => window as W
 
 export type Consentimento = { analise: boolean; marketing: boolean; data: string }
@@ -35,28 +36,49 @@ function script(src: string) {
 
 export function configurarAnalytics(novos: { ga4: string; gtm: string; pixel: string }) {
   ids = novos
+  carregarGa4()
   aplicar(lerConsentimento())
+}
+
+function gtagBase() {
+  const win = w()
+  win.dataLayer = win.dataLayer || []
+  win.gtag =
+    win.gtag ||
+    function () {
+      // eslint-disable-next-line prefer-rest-params
+      win.dataLayer!.push(arguments)
+    }
+  return win.gtag
+}
+
+// Carrega o GA4 do painel quando ele não veio embutido no HTML (VITE_GA4_ID).
+function carregarGa4() {
+  const win = w()
+  const id = ids.ga4
+  if (!id || win.__ga4 === id || carregados.has('ga4')) return
+  carregados.add('ga4')
+  const gtag = gtagBase()
+  gtag('js', new Date())
+  gtag('config', id)
+  script(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`)
 }
 
 export function aplicar(c: Consentimento | null) {
   if (!c) return
   const win = w()
+  const sim = (v: boolean) => (v ? 'granted' : 'denied')
+  gtagBase()('consent', 'update', {
+    analytics_storage: sim(c.analise),
+    ad_storage: sim(c.marketing),
+    ad_user_data: sim(c.marketing),
+    ad_personalization: sim(c.marketing),
+  })
   if (c.analise && ids.gtm && !carregados.has('gtm')) {
     carregados.add('gtm')
     win.dataLayer = win.dataLayer || []
     win.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' })
     script(`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(ids.gtm)}`)
-  }
-  if (c.analise && ids.ga4 && !carregados.has('ga4')) {
-    carregados.add('ga4')
-    win.dataLayer = win.dataLayer || []
-    win.gtag = function () {
-      // eslint-disable-next-line prefer-rest-params
-      win.dataLayer!.push(arguments)
-    }
-    win.gtag('js', new Date())
-    win.gtag('config', ids.ga4)
-    script(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ids.ga4)}`)
   }
   if (c.marketing && ids.pixel && !carregados.has('pixel')) {
     carregados.add('pixel')
@@ -76,9 +98,15 @@ export function aplicar(c: Consentimento | null) {
   }
 }
 
+// A primeira página já é contada pelo GA4 (config) e pelo Pixel (init). As trocas de página seguintes o GA4
+// conta sozinho pela "medição otimizada" (histórico do navegador), então aqui só avisamos GTM e Pixel.
+let primeiraPagina = true
 export function rastrearPagina(caminho: string) {
+  if (primeiraPagina) {
+    primeiraPagina = false
+    return
+  }
   const win = w()
-  win.gtag?.('event', 'page_view', { page_path: caminho })
   win.dataLayer?.push({ event: 'page_view', page_path: caminho })
   if (carregados.has('pixel')) win.fbq?.('track', 'PageView')
 }

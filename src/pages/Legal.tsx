@@ -216,8 +216,9 @@ function Cookies() {
       <h2>2. Análise</h2>
       <p>
         Usados pelo <strong>Google Analytics 4</strong> e pelo <strong>Google Tag Manager</strong> para entender, de forma agregada, quantas
-        pessoas visitam o site, quais páginas são mais acessadas e de onde vêm as visitas. Só são ativados se você aceitar os cookies de
-        análise.
+        pessoas visitam o site, quais páginas são mais acessadas e de onde vêm as visitas. Só são gravados se você aceitar os cookies de
+        análise. Antes disso, o Google Analytics funciona em modo restrito (Modo de Consentimento do Google): não grava cookies no seu
+        navegador e envia apenas sinais anônimos de visita, sem identificar você.
       </p>
 
       <h2>3. Marketing</h2>

@@ -7,10 +7,10 @@
 //   ORIGENS_PERMITIDAS  opcional, lista separada por vírgula (padrão: https://drrogato.com.br,https://www.drrogato.com.br)
 //
 // Publicação: supabase functions deploy notificar-contato (com verificação de JWT; o site envia a chave anon)
-// Chamada pelo site: supabase.functions.invoke('notificar-contato', { body: { nome, telefone, email, cidade, modalidade, mensagem } })
+// Chamada pelo site: supabase.functions.invoke('notificar-contato', { body: { id } })
 //
-// Proteção contra abuso: quando SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY estão disponíveis (padrão nas Edge Functions),
-// só envia e-mail se existir em mensagens_contato uma mensagem com o mesmo telefone gravada nos últimos 10 minutos.
+// Segurança: o conteúdo do e-mail vem do banco (lido com a service key), nunca do corpo da requisição.
+// Cada mensagem gera no máximo um e-mail, e só se foi gravada nos últimos 10 minutos.
 
 const ORIGENS = (Deno.env.get('ORIGENS_PERMITIDAS') || 'https://drrogato.com.br,https://www.drrogato.com.br')
   .split(',')
@@ -46,20 +46,23 @@ function limpar(v: unknown, max: number) {
     .slice(0, max)
 }
 
-async function mensagemExiste(telefone: string): Promise<boolean> {
-  const url = Deno.env.get('SUPABASE_URL')
-  const chave = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
-  if (!url || !chave) return true // sem credenciais, não verifica
+const BASE = Deno.env.get('SUPABASE_URL')
+const SERVICO = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
+// Marca como notificada de forma atômica e devolve a linha só se ainda não tinha sido notificada.
+async function reservarMensagem(id: string): Promise<Record<string, unknown> | null> {
+  if (!BASE || !SERVICO) return null
   const desde = new Date(Date.now() - 10 * 60 * 1000).toISOString()
-  const q = `${url}/rest/v1/mensagens_contato?select=id&telefone=eq.${encodeURIComponent(telefone)}&created_at=gte.${encodeURIComponent(desde)}&limit=1`
-  try {
-    const r = await fetch(q, { headers: { apikey: chave, Authorization: `Bearer ${chave}` } })
-    if (!r.ok) return true // em caso de falha na verificação, não bloqueia o aviso
-    const linhas = await r.json()
-    return Array.isArray(linhas) && linhas.length > 0
-  } catch {
-    return true
-  }
+  const q = `${BASE}/rest/v1/mensagens_contato?id=eq.${id}&notificada=eq.false&created_at=gte.${encodeURIComponent(desde)}&select=nome,telefone,email,cidade,modalidade,mensagem`
+  const r = await fetch(q, {
+    method: 'PATCH',
+    headers: { apikey: SERVICO, Authorization: `Bearer ${SERVICO}`, 'Content-Type': 'application/json', Prefer: 'return=representation' },
+    body: JSON.stringify({ notificada: true }),
+  })
+  if (!r.ok) return null
+  const linhas = await r.json()
+  return Array.isArray(linhas) && linhas.length === 1 ? linhas[0] : null
 }
 
 Deno.serve(async (req) => {
@@ -70,7 +73,7 @@ Deno.serve(async (req) => {
   if (req.method !== 'POST') return responder(405, { erro: 'Método não permitido' })
 
   const bruto = await req.text()
-  if (bruto.length > 10_000) return responder(413, { erro: 'Conteúdo muito grande' })
+  if (bruto.length > 1_000) return responder(413, { erro: 'Conteúdo muito grande' })
   let corpo: Record<string, unknown>
   try {
     corpo = JSON.parse(bruto)
@@ -79,14 +82,16 @@ Deno.serve(async (req) => {
     return responder(400, { erro: 'JSON inválido' })
   }
 
-  const c = Object.fromEntries(Object.entries(LIMITES).map(([k, max]) => [k, limpar(corpo[k], max)])) as Campos
-  if (c.nome.length < 2 || c.telefone.replace(/\D/g, '').length < 8) return responder(400, { erro: 'Nome e telefone são obrigatórios' })
-  const emailValido = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]{2,}$/.test(c.email)
+  const id = String(corpo.id ?? '')
+  if (!UUID.test(id)) return responder(400, { erro: 'id inválido' })
 
   const chave = Deno.env.get('RESEND_API_KEY')
-  if (!chave) return responder(200, { enviado: false, motivo: 'RESEND_API_KEY não configurada' })
+  if (!chave) return responder(200, { enviado: false })
 
-  if (!(await mensagemExiste(c.telefone))) return responder(200, { enviado: false, motivo: 'mensagem não encontrada' })
+  const linha_ = await reservarMensagem(id)
+  if (!linha_) return responder(200, { enviado: false })
+  const c = Object.fromEntries(Object.entries(LIMITES).map(([k, max]) => [k, limpar(linha_[k], max)])) as Campos
+  const emailValido = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]{2,}$/.test(c.email)
 
   const para = Deno.env.get('NOTIFICAR_PARA') || 'rogatoquadros@live.com'
   const de = Deno.env.get('NOTIFICAR_DE') || 'Site Dr. Rogato <onboarding@resend.dev>'

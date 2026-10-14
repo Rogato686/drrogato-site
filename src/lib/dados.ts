@@ -47,9 +47,18 @@ export async function carregarDadosSite(): Promise<SiteData> {
   }
 }
 
+// Links perigosos (javascript:, data:, vbscript:) viram texto vazio antes de chegar a qualquer href/src.
+const PERIGOSO = /^(javascript|data|vbscript):/i
+const limparTexto = (v: string) => (PERIGOSO.test(v.replace(/[\u0000-\u0020]/g, '')) ? '' : v)
+
 function nulos<T extends Record<string, unknown>>(o: T): T {
   const r: Record<string, unknown> = {}
-  for (const [k, v] of Object.entries(o)) r[k] = v === null ? '' : v
+  for (const [k, v] of Object.entries(o)) {
+    if (v === null) r[k] = ''
+    else if (typeof v === 'string') r[k] = limparTexto(v)
+    else if (Array.isArray(v)) r[k] = v.map((x) => (typeof x === 'string' ? limparTexto(x) : x))
+    else r[k] = v
+  }
   return r as T
 }
 

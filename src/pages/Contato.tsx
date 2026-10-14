@@ -89,13 +89,14 @@ export default function Contato() {
     }
 
     setEstado('enviando')
-    const { error } = await supabase.from('mensagens_contato').insert({ ...dados, consentimento: true })
+    const id = crypto.randomUUID()
+    const { error } = await supabase.from('mensagens_contato').insert({ id, ...dados, consentimento: true })
     if (error) {
       setEstado('erro')
       return
     }
     try {
-      await supabase.functions.invoke('notificar-contato', { body: dados })
+      await supabase.functions.invoke('notificar-contato', { body: { id } })
     } catch {
       /* a mensagem já foi salva; a notificação por e-mail é secundária */
     }

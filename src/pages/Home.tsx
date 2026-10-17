@@ -106,62 +106,46 @@ export default function Home() {
         </p>
       </div>
 
-      {/* 2. Como posso te ajudar? */}
-      <section className="secao bg-white">
+      {/* 2. Como posso te ajudar? (áreas de atuação, com o que inclui cada uma) */}
+      <section className="secao bg-white" aria-labelledby="como-ajudar">
         <div className="container-site">
-          <TituloSecao rotulo="Áreas de atuação" titulo="Como posso te ajudar?" texto="Cada pessoa chega com um objetivo diferente. Escolha o tema que mais combina com o seu momento." centro />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <TituloSecao rotulo="Áreas de atuação" titulo={<span id="como-ajudar">Como posso te ajudar?</span>} texto="Cada pessoa chega com um objetivo diferente. Escolha o tema que mais combina com o seu momento." centro />
+          <ul className="mt-12 grid gap-6 lg:grid-cols-3">
             {AREAS.map((a) => {
               const Icone = ICONE_AREA[a.slug]
+              const b = BLOCOS[a.slug]
               return (
-                <Link key={a.slug} to={`/tratamentos/${a.slug}`} className="group cartao flex flex-col ring-1 ring-lilas-200 transition-all hover:-translate-y-1 hover:shadow-suave">
-                  <Hexagono tamanho={64} variante="lilas"><Icone tamanho={28} /></Hexagono>
-                  <h3 className="mt-5 font-display text-xl">{a.titulo}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-grafite/75">{a.resumo}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-display text-xs uppercase tracking-wider text-marinho">
-                    Saiba mais <IconeSeta tamanho={16} className="transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
+                <li key={a.slug} className="cartao flex flex-col ring-1 ring-lilas-200">
+                  <div className="flex items-center gap-4">
+                    <Hexagono tamanho={56} variante="lilas"><Icone tamanho={24} /></Hexagono>
+                    <h3 className="font-display text-xl leading-snug">{a.titulo}</h3>
+                  </div>
+                  <p className="mt-5 font-medium leading-relaxed text-marinho">{a.resumo}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-grafite/80">{b.texto}</p>
+                  <ul className="mt-5 flex-1 space-y-2.5 text-[15px]">
+                    {b.bullets.map((t) => (
+                      <li key={t} className="flex gap-3">
+                        <IconeCheck tamanho={18} className="mt-0.5 shrink-0 text-marinho-400" />
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={`/tratamentos/${a.slug}`}
+                    className="group mt-6 inline-flex min-h-[44px] items-center gap-2 self-start font-display text-sm font-medium uppercase tracking-wider text-marinho"
+                    aria-label={`Entenda a abordagem: ${a.titulo}`}
+                  >
+                    Entenda a abordagem <IconeSeta tamanho={16} className="transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </li>
               )
             })}
+          </ul>
+          <div className="mt-10 flex justify-center">
+            <BotaoAgendar modalidade="geral" className="btn-whatsapp" rotulo="Áreas de atuação" icone>Agendar pelo WhatsApp</BotaoAgendar>
           </div>
         </div>
       </section>
-
-      {/* 3. Blocos de tratamento */}
-      {AREAS.map((a, i) => {
-        const Icone = ICONE_AREA[a.slug]
-        const b = BLOCOS[a.slug]
-        const par = i % 2 === 1
-        return (
-          <section key={a.slug} className={`py-14 md:py-20 ${par ? 'bg-white' : 'bg-lilas-50'}`} aria-labelledby={`bloco-${a.slug}`}>
-            <div className={`container-site grid items-center gap-10 md:grid-cols-2 md:gap-16`}>
-              <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl ${par ? 'bg-lilas-100 md:order-2' : 'bg-marinho'}`}>
-                <img src={par ? '/logo/simbolo-azul.svg' : '/logo/simbolo-branco.svg'} alt="" aria-hidden="true" className="absolute -bottom-10 -right-10 w-2/3 opacity-[0.06]" />
-                <Hexagono tamanho={150} variante={par ? 'marinho' : 'lilas'}><Icone tamanho={62} strokeWidth={1.2} /></Hexagono>
-                <span className={`absolute left-6 top-6 font-display text-xs uppercase tracking-rotulo ${par ? 'text-marinho-400' : 'text-lilas'}`}>0{i + 1}</span>
-              </div>
-              <div>
-                <p className="rotulo">Tratamento</p>
-                <h2 id={`bloco-${a.slug}`} className="titulo-secao mt-3">{a.titulo}</h2>
-                <p className="mt-4 leading-relaxed text-grafite/80">{b.texto}</p>
-                <ul className="mt-6 space-y-3">
-                  {b.bullets.map((t) => (
-                    <li key={t} className="flex gap-3">
-                      <IconeCheck tamanho={20} className="mt-0.5 shrink-0 text-marinho-400" />
-                      <span>{t}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <BotaoAgendar modalidade="geral" rotulo={`Bloco ${a.slug}`}>Agendar consulta</BotaoAgendar>
-                  <Link to={`/tratamentos/${a.slug}`} className="link px-2 py-2 text-center text-sm">Entenda a abordagem</Link>
-                </div>
-              </div>
-            </div>
-          </section>
-        )
-      })}
 
       {/* 4. Como é a minha consulta? */}
       <section className="secao relative overflow-hidden bg-marinho">

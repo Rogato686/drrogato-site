@@ -57,7 +57,7 @@ export default function Links() {
         />
         <h1 className="mt-5 text-center font-display text-2xl font-light text-white">{MEDICO.nomeCurto}</h1>
         <p className="mt-1 text-center text-sm text-lilas-200">{MEDICO.titulo}</p>
-        <p className="mt-1 text-center text-xs uppercase tracking-rotulo text-lilas-200/80">{MEDICO.crm}</p>
+        <p className="mt-1 text-center text-[13px] uppercase tracking-[0.16em] text-lilas-200">{MEDICO.crm}</p>
 
         <nav aria-label="Links principais" className="mt-8 w-full">
           <ul className="space-y-3">
@@ -69,7 +69,7 @@ export default function Links() {
                 onClick={() => aoClicarAgendar('presencial', 'Links: presencial')}
               >
                 Agendar consulta presencial
-                {cidades.length > 0 && <span className="block font-sans text-xs font-normal opacity-75">{cidades.join(' e ')} (MG)</span>}
+                {cidades.length > 0 && <span className="block font-sans text-[13px] font-normal opacity-80">{cidades.join(' e ')} (MG)</span>}
               </Botao>
             </li>
             {telemedicina.ativo && (
@@ -81,7 +81,7 @@ export default function Links() {
                   onClick={() => aoClicarAgendar('online', 'Links: teleconsulta')}
                 >
                   Agendar teleconsulta
-                  <span className="block font-sans text-xs font-normal opacity-75">Online para todo o Brasil</span>
+                  <span className="block font-sans text-[13px] font-normal opacity-80">Online para todo o Brasil</span>
                 </Botao>
               </li>
             )}
@@ -111,7 +111,7 @@ export default function Links() {
           </ul>
         </nav>
 
-        <p className="mt-10 text-center text-xs leading-relaxed text-lilas-200/70">
+        <p className="mt-10 text-center text-[13px] leading-relaxed text-lilas-200/90">
           {MEDICO.nome} · {MEDICO.crm}
           <br />
           <Link to="/politica-de-privacidade" className="underline underline-offset-2 hover:text-white">

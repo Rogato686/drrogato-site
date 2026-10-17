@@ -13,7 +13,7 @@
 @layer components {
   .container-site { @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8; }
   .secao { @apply py-16 md:py-24; }
-  .rotulo { @apply font-display text-xs font-medium uppercase tracking-rotulo text-marinho-400; }
+  .rotulo { @apply font-display text-xs font-medium uppercase leading-5 tracking-[0.16em] text-marinho-500; }
   .titulo-secao { @apply font-display text-3xl font-light leading-tight text-marinho md:text-4xl; }
   .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-display text-sm font-medium uppercase tracking-wider transition-colors duration-200; }
   .btn-primario { @apply btn bg-marinho text-white hover:bg-marinho-600; }
@@ -29,7 +29,7 @@
   .prosa h3 { @apply mb-3 mt-8 font-display text-xl; }
   .prosa ul { @apply mb-4 list-disc space-y-1 pl-6; }
   .prosa a { @apply link; }
-  .campo { @apply w-full rounded-xl border border-marinho-200 bg-white px-4 py-3 text-base text-grafite placeholder:text-marinho-300 focus:border-marinho focus:outline-none focus:ring-2 focus:ring-marinho-200; }
+  .campo { @apply w-full rounded-xl border border-marinho-200 bg-white px-4 py-3 text-base text-grafite placeholder:text-[#6B7385] focus:border-marinho focus:outline-none focus:ring-2 focus:ring-marinho-200; }
   /* Foto do hero: no celular, esmaece em todas as bordas (sem emenda vertical); no desktop, funde à esquerda e embaixo */
   .hero-foto {
     -webkit-mask-image: radial-gradient(ellipse 50% 58% at 50% 42%, #000 50%, transparent 100%);

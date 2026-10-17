@@ -379,7 +379,7 @@ export default function Contato() {
               </div>
 
               <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-                <p className="flex items-center gap-2 text-xs text-grafite/60">
+                <p className="flex items-center gap-2 text-[13px] text-grafite/75">
                   <IconeEscudo tamanho={16} /> * Campos obrigatórios
                 </p>
                 <button type="submit" className="btn-primario disabled:opacity-60" disabled={estado === 'enviando'}>

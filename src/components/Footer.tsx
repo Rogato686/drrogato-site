@@ -28,27 +28,27 @@ export function Footer() {
           </div>
           <div>
             <h2 className="rotulo !text-lilas">Navegação</h2>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="mt-3 text-sm">
               {MENU.map((m) => (
-                <li key={m.to}><Link className="hover:text-white" to={m.to}>{m.rotulo}</Link></li>
+                <li key={m.to}><Link className="inline-flex min-h-[40px] items-center hover:text-white" to={m.to}>{m.rotulo}</Link></li>
               ))}
-              <li><Link className="hover:text-white" to="/links">Links</Link></li>
+              <li><Link className="inline-flex min-h-[40px] items-center hover:text-white" to="/links">Links</Link></li>
             </ul>
           </div>
           <div>
             <h2 className="rotulo !text-lilas">Tratamentos</h2>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="mt-3 text-sm">
               {AREAS.map((a) => (
-                <li key={a.slug}><Link className="hover:text-white" to={`/tratamentos/${a.slug}`}>{a.titulo}</Link></li>
+                <li key={a.slug}><Link className="inline-flex min-h-[40px] items-center hover:text-white" to={`/tratamentos/${a.slug}`}>{a.titulo}</Link></li>
               ))}
             </ul>
           </div>
           <div>
             <h2 className="rotulo !text-lilas">Atendimento</h2>
-            <ul className="mt-4 space-y-4 text-sm">
+            <ul className="mt-3 space-y-3 text-sm">
               {locais.map((l) => (
                 <li key={l.id}>
-                  <Link to="/consultorio" className="font-medium text-white hover:underline">{l.cidade}/{l.uf}</Link>
+                  <Link to="/consultorio" className="inline-flex min-h-[40px] items-center font-medium text-white hover:underline">{l.cidade}/{l.uf}</Link>
                   <span className="block">{l.nome}</span>
                   {horariosPorDia(l.horarios).map((h) => (
                     <span key={h.dia} className="block text-lilas-300">{h.dia}, {h.faixas}</span>
@@ -56,32 +56,32 @@ export function Footer() {
                 </li>
               ))}
               {telemedicina.ativo && (
-                <li><Link to="/telemedicina" className="font-medium text-white hover:underline">Online para todo o Brasil</Link></li>
+                <li><Link to="/telemedicina" className="inline-flex min-h-[40px] items-center font-medium text-white hover:underline">Online para todo o Brasil</Link></li>
               )}
             </ul>
           </div>
           <div>
             <h2 className="rotulo !text-lilas">Contato</h2>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="mt-3 text-sm">
               <li>
                 <a
                   href={linkWhatsApp(mensagemAgendamento('geral'))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white"
+                  className="inline-flex min-h-[40px] items-center hover:text-white"
                   onClick={() => rastrearWhatsApp('rodape')}
                 >
                   WhatsApp {tel}
                 </a>
               </li>
-              {redes.email && <li><a className="break-all hover:text-white" href={`mailto:${redes.email}`}>{redes.email}</a></li>}
-              {redes.instagram && <li><a className="hover:text-white" href={redes.instagram} target="_blank" rel="noopener noreferrer">Instagram @{redes.instagram.replace(/\/$/, '').split('/').pop()}</a></li>}
-              <li><Link className="hover:text-white" to="/contato">Formulário de contato</Link></li>
+              {redes.email && <li><a className="inline-flex min-h-[40px] items-center break-all hover:text-white" href={`mailto:${redes.email}`}>{redes.email}</a></li>}
+              {redes.instagram && <li><a className="inline-flex min-h-[40px] items-center hover:text-white" href={redes.instagram} target="_blank" rel="noopener noreferrer">Instagram @{redes.instagram.replace(/\/$/, '').split('/').pop()}</a></li>}
+              <li><Link className="inline-flex min-h-[40px] items-center hover:text-white" to="/contato">Formulário de contato</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8 text-xs leading-relaxed text-lilas-300">
+        <div className="mt-12 border-t border-white/10 pt-8 text-[13px] leading-relaxed text-lilas-300">
           <p>
             <strong className="font-medium text-lilas-100">Responsável técnico:</strong> {MEDICO.nome} · {MEDICO.crm} · {MEDICO.titulo}.
           </p>
@@ -89,12 +89,12 @@ export function Footer() {
             {CLINICA.nome} · Registro no {CLINICA.registroCrm} · Diretor técnico: {CLINICA.diretorTecnico}.
           </p>
           <p className="mt-2">As informações deste site têm caráter educativo e não substituem a consulta médica.</p>
-          <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-            <li><Link className="hover:text-white" to="/politica-de-privacidade">Política de Privacidade</Link></li>
-            <li><Link className="hover:text-white" to="/termos-de-uso">Termos de Uso</Link></li>
-            <li><Link className="hover:text-white" to="/politica-de-cookies">Política de Cookies</Link></li>
+          <ul className="mt-3 flex flex-wrap gap-x-5">
+            <li><Link className="inline-flex min-h-[40px] items-center hover:text-white" to="/politica-de-privacidade">Política de Privacidade</Link></li>
+            <li><Link className="inline-flex min-h-[40px] items-center hover:text-white" to="/termos-de-uso">Termos de Uso</Link></li>
+            <li><Link className="inline-flex min-h-[40px] items-center hover:text-white" to="/politica-de-cookies">Política de Cookies</Link></li>
             <li>
-              <button type="button" className="hover:text-white" onClick={() => window.dispatchEvent(new Event('drr:abrir-cookies'))}>
+              <button type="button" className="inline-flex min-h-[40px] items-center hover:text-white" onClick={() => window.dispatchEvent(new Event('drr:abrir-cookies'))}>
                 Preferências de cookies
               </button>
             </li>

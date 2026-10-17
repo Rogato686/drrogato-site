@@ -6,9 +6,11 @@ import { IconeCheck, IconeInfo, IconeLocal, IconeSeta, IconeVideo } from '../com
 import { AREAS } from '../lib/constantes'
 import { CONTEUDO_AREAS, ICONES_AREA } from './conteudoTratamentos'
 import NaoEncontrada from './NaoEncontrada'
+import { useSite } from '../lib/SiteDataContext'
 
 export default function TratamentoArea() {
   const { area } = useParams()
+  const { telemedicina } = useSite()
   const info = AREAS.find((a) => a.slug === area)
   if (!info) return <NaoEncontrada />
   const c = CONTEUDO_AREAS[info.slug]
@@ -17,27 +19,40 @@ export default function TratamentoArea() {
 
   return (
     <>
-      <CabecalhoPagina rotulo="Tratamentos" titulo={info.titulo} texto={c.chamada}>
-        <nav aria-label="Trilha de navegação" className="mt-6 text-sm text-grafite/70">
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <Link to="/" className="hover:text-marinho">
-                Início
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link to="/tratamentos" className="hover:text-marinho">
-                Tratamentos
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-marinho">
-              {info.titulo}
-            </li>
-          </ol>
-        </nav>
-      </CabecalhoPagina>
+      <CabecalhoPagina
+        rotulo="Tratamentos"
+        titulo={info.titulo}
+        texto={c.chamada}
+        antes={
+          <nav aria-label="Trilha de navegação" className="text-sm text-grafite/75">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link to="/" className="hover:text-marinho">
+                  Início
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link to="/tratamentos" className="hover:text-marinho">
+                  Tratamentos
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-marinho">
+                {info.titulo}
+              </li>
+            </ol>
+          </nav>
+        }
+        acoes={
+          <>
+            <BotaoAgendar modalidade="presencial" className="btn-whatsapp" rotulo={`Topo área ${info.slug}`} icone>
+              Agendar pelo WhatsApp
+            </BotaoAgendar>
+            {telemedicina.ativo && <BotaoAgendar modalidade="online" className="btn-contorno" rotulo={`Topo área ${info.slug}`} />}
+          </>
+        }
+      />
 
       {/* Introdução + para quem é */}
       <section className="secao" aria-labelledby="para-quem">

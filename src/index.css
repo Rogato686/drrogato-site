@@ -4,7 +4,7 @@
 
 @layer base {
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body { @apply bg-white font-sans text-grafite antialiased; }
+  body { @apply bg-white font-sans text-grafite antialiased; padding-bottom: var(--altura-cookies, 0px); }
   h1, h2, h3, h4 { @apply font-display text-marinho; font-weight: 400; }
   :focus-visible { outline: 3px solid #4A6596; outline-offset: 3px; border-radius: 4px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }

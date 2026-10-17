@@ -75,7 +75,7 @@ export const DADOS_PADRAO: SiteData = {
   ],
   avisos: [],
   conteudo: {
-    hero_titulo: 'Seu metabolismo, sua energia e sua longevidade merecem um cuidado completo',
+    hero_titulo: 'Seu corpo merece um cuidado completo',
     hero_subtitulo:
       'Sou o Dr. Rogato e cuido de emagrecimento, performance, longevidade e saúde metabólica com avaliação detalhada e um plano feito para a sua rotina.',
     instagram_posts: [],

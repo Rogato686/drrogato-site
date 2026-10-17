@@ -36,7 +36,7 @@ function CartaoLocal({ l, indice }: { l: Local; indice: number }) {
             {l.nome}
           </h2>
           {l.nome.trim().toLowerCase() === CLINICA.nome.toLowerCase() && (
-            <p className="mt-2 text-xs leading-relaxed text-grafite/70">
+            <p className="mt-2 text-[13px] leading-relaxed text-grafite/75">
               Registro no {CLINICA.registroCrm} · Diretor técnico: {CLINICA.diretorTecnico}
             </p>
           )}

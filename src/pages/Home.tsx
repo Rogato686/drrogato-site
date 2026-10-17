@@ -63,8 +63,8 @@ export default function Home() {
       <section className="relative overflow-hidden bg-marinho" style={{ background: 'linear-gradient(115deg,#142F5A 0%,#142F5A 42%,#1f2b40 68%,#2C2726 100%)' }}>
         <img src="/logo/simbolo-branco.svg" alt="" aria-hidden="true" className="pointer-events-none absolute -left-24 bottom-0 w-[420px] opacity-[0.04]" />
         <div className="container-site relative grid items-end gap-6 pt-24 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:pt-0 lg:min-h-[720px]">
-          {/* Foto: acima do texto no celular, à direita no desktop */}
-          <div className="relative order-1 mx-auto -mb-6 h-[340px] w-full max-w-sm sm:h-[420px] md:order-2 md:mb-0 md:h-full md:max-w-none">
+          {/* Foto: abaixo do texto e do botão no celular, à direita no desktop */}
+          <div className="relative order-2 mx-auto -mt-2 h-[240px] w-full max-w-[300px] sm:h-[400px] sm:max-w-sm md:mt-0 md:h-full md:max-w-none">
             <picture>
               <source media="(max-width: 767px)" srcSet="/foto/dr-rogato-hero-800.webp" type="image/webp" />
               <source srcSet="/foto/dr-rogato-hero.webp" type="image/webp" />
@@ -74,90 +74,78 @@ export default function Home() {
                 {...{ fetchpriority: "high" }}
                 width={1600}
                 height={2400}
-                className="h-full w-full object-cover md:absolute md:inset-0"
-                style={{
-                  objectPosition: '50% 22%',
-                  WebkitMaskImage: 'linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent 0, #000 18%)',
-                  WebkitMaskComposite: 'source-in',
-                  maskImage: 'linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent 0, #000 18%)',
-                  maskComposite: 'intersect',
-                }}
+                className="hero-foto h-full w-full object-cover md:absolute md:inset-0"
+                style={{ objectPosition: '50% 22%' }}
               />
             </picture>
           </div>
-          <div className="relative order-2 pb-14 md:order-1 md:self-center md:py-32">
+          <div className="relative order-1 md:self-center md:py-32">
             <p className="rotulo !text-lilas">{MEDICO.atuacao}</p>
-            <h1 className="mt-4 font-display text-[2rem] font-light leading-[1.15] text-white sm:text-4xl lg:text-5xl">{conteudo.hero_titulo}</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-lilas-200">{conteudo.hero_subtitulo}</p>
-            <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-              <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-4 py-2 text-lilas"><IconeLocal tamanho={16} /> Presencial em Teófilo Otoni e Malacacheta – MG</li>
-              {telemedicina.ativo && <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-4 py-2 text-lilas"><IconeBrasil tamanho={16} /> Online para todo o Brasil</li>}
+            <h1 className="mt-3 font-display text-[2rem] font-light leading-[1.15] text-white sm:text-4xl lg:text-5xl">{conteudo.hero_titulo}</h1>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-lilas-200 sm:mt-5 sm:text-lg">{conteudo.hero_subtitulo}</p>
+            <ul className="mt-5 flex flex-wrap gap-2 text-sm sm:mt-6">
+              <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-3 py-1.5 text-lilas sm:px-4 sm:py-2"><IconeLocal tamanho={16} /> Presencial em Teófilo Otoni e Malacacheta – MG</li>
+              {telemedicina.ativo && <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-3 py-1.5 text-lilas sm:px-4 sm:py-2"><IconeBrasil tamanho={16} /> Online para todo o Brasil</li>}
             </ul>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <BotaoAgendar modalidade="presencial" className="btn-lilas" rotulo="Hero" />
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+              <BotaoAgendar modalidade="presencial" className="btn-whatsapp" rotulo="Hero" icone>Agendar pelo WhatsApp</BotaoAgendar>
               {telemedicina.ativo && <BotaoAgendar modalidade="online" className="btn-contorno-branco" rotulo="Hero" />}
             </div>
-            <p className="mt-6 text-xs uppercase tracking-widest text-lilas-300">{MEDICO.nomeCurto} · {MEDICO.crm} · {MEDICO.tituloCurto}</p>
           </div>
         </div>
       </section>
 
-      {/* 2. Como posso te ajudar? */}
-      <section className="secao bg-white">
+      {/* Faixa de credenciais */}
+      <div className="border-b border-lilas-200 bg-lilas-50">
+        <p className="container-site flex flex-wrap items-center justify-center gap-x-3 gap-y-1 py-4 text-center text-sm text-marinho">
+          <span className="font-medium">{MEDICO.nomeCurto}</span>
+          <span aria-hidden="true" className="text-marinho-300">·</span>
+          <span>{MEDICO.crm}</span>
+          <span aria-hidden="true" className="text-marinho-300">·</span>
+          <span>{MEDICO.tituloCurto}</span>
+        </p>
+      </div>
+
+      {/* 2. Como posso te ajudar? (áreas de atuação, com o que inclui cada uma) */}
+      <section className="secao bg-white" aria-labelledby="como-ajudar">
         <div className="container-site">
-          <TituloSecao rotulo="Áreas de atuação" titulo="Como posso te ajudar?" texto="Cada pessoa chega com um objetivo diferente. Escolha o tema que mais combina com o seu momento." centro />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <TituloSecao rotulo="Áreas de atuação" titulo={<span id="como-ajudar">Como posso te ajudar?</span>} texto="Cada pessoa chega com um objetivo diferente. Escolha o tema que mais combina com o seu momento." centro />
+          <ul className="mt-12 grid gap-6 lg:grid-cols-3">
             {AREAS.map((a) => {
               const Icone = ICONE_AREA[a.slug]
+              const b = BLOCOS[a.slug]
               return (
-                <Link key={a.slug} to={`/tratamentos/${a.slug}`} className="group cartao flex flex-col ring-1 ring-lilas-200 transition-all hover:-translate-y-1 hover:shadow-suave">
-                  <Hexagono tamanho={64} variante="lilas"><Icone tamanho={28} /></Hexagono>
-                  <h3 className="mt-5 font-display text-xl">{a.titulo}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-grafite/75">{a.resumo}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-display text-xs uppercase tracking-wider text-marinho">
-                    Saiba mais <IconeSeta tamanho={16} className="transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
+                <li key={a.slug} className="cartao flex flex-col ring-1 ring-lilas-200">
+                  <div className="flex items-center gap-4">
+                    <Hexagono tamanho={56} variante="lilas"><Icone tamanho={24} /></Hexagono>
+                    <h3 className="font-display text-xl leading-snug">{a.titulo}</h3>
+                  </div>
+                  <p className="mt-5 font-medium leading-relaxed text-marinho">{a.resumo}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-grafite/80">{b.texto}</p>
+                  <ul className="mt-5 flex-1 space-y-2.5 text-[15px]">
+                    {b.bullets.map((t) => (
+                      <li key={t} className="flex gap-3">
+                        <IconeCheck tamanho={18} className="mt-0.5 shrink-0 text-marinho-400" />
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={`/tratamentos/${a.slug}`}
+                    className="group mt-6 inline-flex min-h-[44px] items-center gap-2 self-start font-display text-sm font-medium uppercase tracking-wider text-marinho"
+                    aria-label={`Entenda a abordagem: ${a.titulo}`}
+                  >
+                    Entenda a abordagem <IconeSeta tamanho={16} className="transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </li>
               )
             })}
+          </ul>
+          <div className="mt-10 flex justify-center">
+            <BotaoAgendar modalidade="geral" className="btn-whatsapp" rotulo="Áreas de atuação" icone>Agendar pelo WhatsApp</BotaoAgendar>
           </div>
         </div>
       </section>
-
-      {/* 3. Blocos de tratamento */}
-      {AREAS.map((a, i) => {
-        const Icone = ICONE_AREA[a.slug]
-        const b = BLOCOS[a.slug]
-        const par = i % 2 === 1
-        return (
-          <section key={a.slug} className={`py-14 md:py-20 ${par ? 'bg-white' : 'bg-lilas-50'}`} aria-labelledby={`bloco-${a.slug}`}>
-            <div className={`container-site grid items-center gap-10 md:grid-cols-2 md:gap-16`}>
-              <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl ${par ? 'bg-lilas-100 md:order-2' : 'bg-marinho'}`}>
-                <img src={par ? '/logo/simbolo-azul.svg' : '/logo/simbolo-branco.svg'} alt="" aria-hidden="true" className="absolute -bottom-10 -right-10 w-2/3 opacity-[0.06]" />
-                <Hexagono tamanho={150} variante={par ? 'marinho' : 'lilas'}><Icone tamanho={62} strokeWidth={1.2} /></Hexagono>
-                <span className={`absolute left-6 top-6 font-display text-xs uppercase tracking-rotulo ${par ? 'text-marinho-400' : 'text-lilas'}`}>0{i + 1}</span>
-              </div>
-              <div>
-                <p className="rotulo">Tratamento</p>
-                <h2 id={`bloco-${a.slug}`} className="titulo-secao mt-3">{a.titulo}</h2>
-                <p className="mt-4 leading-relaxed text-grafite/80">{b.texto}</p>
-                <ul className="mt-6 space-y-3">
-                  {b.bullets.map((t) => (
-                    <li key={t} className="flex gap-3">
-                      <IconeCheck tamanho={20} className="mt-0.5 shrink-0 text-marinho-400" />
-                      <span>{t}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <BotaoAgendar modalidade="geral" rotulo={`Bloco ${a.slug}`}>Agendar consulta</BotaoAgendar>
-                  <Link to={`/tratamentos/${a.slug}`} className="link px-2 py-2 text-center text-sm">Entenda a abordagem</Link>
-                </div>
-              </div>
-            </div>
-          </section>
-        )
-      })}
 
       {/* 4. Como é a minha consulta? */}
       <section className="secao relative overflow-hidden bg-marinho">

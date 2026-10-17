@@ -14,14 +14,16 @@ export function TituloSecao({ rotulo, titulo, texto, centro = false, claro = fal
 }
 
 /** Cabeçalho das páginas internas (fundo lilás, compensando o header fixo). */
-export function CabecalhoPagina({ rotulo, titulo, texto, children }: { rotulo?: string; titulo: ReactNode; texto?: ReactNode; children?: ReactNode }) {
+export function CabecalhoPagina({ rotulo, titulo, texto, acoes, antes, children }: { rotulo?: string; titulo: ReactNode; texto?: ReactNode; acoes?: ReactNode; antes?: ReactNode; children?: ReactNode }) {
   return (
-    <section className="relative overflow-hidden bg-lilas-100 pb-14 pt-32 md:pb-20 md:pt-40">
+    <section className="relative overflow-hidden bg-lilas-100 pb-12 pt-28 md:pb-20 md:pt-40">
       <img src="/logo/simbolo-azul.svg" alt="" aria-hidden="true" className="pointer-events-none absolute -right-20 top-10 w-80 opacity-[0.05] md:w-[440px]" />
       <div className="container-site relative">
-        {rotulo && <p className="rotulo">{rotulo}</p>}
+        {antes}
+        {rotulo && <p className={`rotulo ${antes ? 'mt-5' : ''}`}>{rotulo}</p>}
         <h1 className="mt-3 max-w-3xl font-display text-4xl font-light leading-tight text-marinho md:text-5xl">{titulo}</h1>
         {texto && <p className="mt-5 max-w-2xl text-lg leading-relaxed text-grafite/80">{texto}</p>}
+        {acoes && <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">{acoes}</div>}
         {children}
       </div>
     </section>
@@ -66,8 +68,8 @@ export function CtaFinal({ titulo = 'Pronto para começar?', texto = 'Agende sua
         <h2 className="font-display text-3xl font-light text-white md:text-4xl">{titulo}</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-lilas-200">{texto}</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          {so !== 'online' && <BotaoAgendar modalidade="presencial" className="btn-lilas" rotulo="CTA final" />}
-          {so !== 'presencial' && <BotaoAgendar modalidade="online" className="btn-contorno-branco" rotulo="CTA final" />}
+          {so !== 'online' && <BotaoAgendar modalidade="presencial" className="btn-whatsapp" rotulo="CTA final" icone>Agendar pelo WhatsApp</BotaoAgendar>}
+          {so !== 'presencial' && <BotaoAgendar modalidade="online" className={so === 'online' ? 'btn-lilas' : 'btn-contorno-branco'} rotulo="CTA final" />}
         </div>
       </div>
     </section>

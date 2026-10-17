@@ -43,14 +43,14 @@ export function Header() {
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2">
         Pular para o conteúdo
       </a>
-      <div className={`container-site flex items-center justify-between gap-4 transition-[height] ${rolou ? 'h-16' : 'h-20'}`}>
+      <div className={`container-site flex items-center justify-between gap-2 min-[360px]:gap-4 transition-[height] ${rolou ? 'h-16' : 'h-20'}`}>
         <Link to="/" className="flex shrink-0 items-center py-3" aria-label="Dr. Rogato, página inicial">
           {transparente ? (
-            <Logo versao="horizontal-sem-tagline" cor="branco" className="h-7 w-auto md:h-8" />
+            <Logo versao="horizontal-sem-tagline" cor="branco" className="h-6 w-auto min-[360px]:h-7 md:h-8" />
           ) : (
             <>
               {/* Com tagline só quando há largura (≥ 360px de logo) e o header não está compacto */}
-              <Logo versao="horizontal-sem-tagline" cor="azul" className={`h-7 w-auto ${rolou ? '' : 'xl:hidden'}`} />
+              <Logo versao="horizontal-sem-tagline" cor="azul" className={`h-6 w-auto min-[360px]:h-7 ${rolou ? '' : 'xl:hidden'}`} />
               {!rolou && <Logo versao="horizontal-sem-tagline" cor="azul" className="hidden h-9 w-auto xl:block" />}
             </>
           )}
@@ -86,7 +86,7 @@ export function Header() {
             modalidade="geral"
             rotulo="Header celular"
             icone
-            className="btn-whatsapp !min-h-[40px] !gap-1.5 !px-4 !py-2 !text-xs !shadow-none sm:!hidden"
+            className="btn-whatsapp !min-h-[40px] !gap-1.5 !px-3 !py-2 min-[360px]:!px-4 !text-xs !shadow-none sm:!hidden"
           >
             Agendar
           </BotaoAgendar>

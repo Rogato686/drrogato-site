@@ -76,12 +76,20 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <RedesSociais
             className="hidden xl:flex"
             tamanho={18}
             itemClass={transparente ? 'text-white hover:bg-white/10' : 'text-marinho hover:bg-lilas-100'}
           />
+          <BotaoAgendar
+            modalidade="geral"
+            rotulo="Header celular"
+            icone
+            className={`sm:hidden ${transparente ? 'btn-lilas' : 'btn-primario'} !min-h-[40px] !gap-1.5 !px-4 !py-2 !text-xs`}
+          >
+            Agendar
+          </BotaoAgendar>
           <BotaoAgendar
             modalidade="geral"
             rotulo="Header"

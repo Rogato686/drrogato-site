@@ -28,5 +28,18 @@
   .prosa ul { @apply mb-4 list-disc space-y-1 pl-6; }
   .prosa a { @apply link; }
   .campo { @apply w-full rounded-xl border border-marinho-200 bg-white px-4 py-3 text-base text-grafite placeholder:text-marinho-300 focus:border-marinho focus:outline-none focus:ring-2 focus:ring-marinho-200; }
+  /* Foto do hero: no celular, esmaece em todas as bordas (sem emenda vertical); no desktop, funde à esquerda e embaixo */
+  .hero-foto {
+    -webkit-mask-image: radial-gradient(ellipse 50% 58% at 50% 42%, #000 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse 50% 58% at 50% 42%, #000 50%, transparent 100%);
+  }
+  @media (min-width: 768px) {
+    .hero-foto {
+      -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent 0, #000 18%);
+      -webkit-mask-composite: source-in;
+      mask-image: linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent 0, #000 18%);
+      mask-composite: intersect;
+    }
+  }
   .hex-mask { clip-path: polygon(50% 0, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%); }
 }

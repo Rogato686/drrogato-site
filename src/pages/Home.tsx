@@ -63,8 +63,8 @@ export default function Home() {
       <section className="relative overflow-hidden bg-marinho" style={{ background: 'linear-gradient(115deg,#142F5A 0%,#142F5A 42%,#1f2b40 68%,#2C2726 100%)' }}>
         <img src="/logo/simbolo-branco.svg" alt="" aria-hidden="true" className="pointer-events-none absolute -left-24 bottom-0 w-[420px] opacity-[0.04]" />
         <div className="container-site relative grid items-end gap-6 pt-24 md:min-h-[640px] md:grid-cols-[1.1fr_0.9fr] md:pt-0 lg:min-h-[720px]">
-          {/* Foto: acima do texto no celular, à direita no desktop */}
-          <div className="relative order-1 mx-auto -mb-6 h-[340px] w-full max-w-sm sm:h-[420px] md:order-2 md:mb-0 md:h-full md:max-w-none">
+          {/* Foto: abaixo do texto e do botão no celular, à direita no desktop */}
+          <div className="relative order-2 mx-auto -mt-2 h-[240px] w-full max-w-[300px] sm:h-[400px] sm:max-w-sm md:mt-0 md:h-full md:max-w-none">
             <picture>
               <source media="(max-width: 767px)" srcSet="/foto/dr-rogato-hero-800.webp" type="image/webp" />
               <source srcSet="/foto/dr-rogato-hero.webp" type="image/webp" />
@@ -74,26 +74,20 @@ export default function Home() {
                 {...{ fetchpriority: "high" }}
                 width={1600}
                 height={2400}
-                className="h-full w-full object-cover md:absolute md:inset-0"
-                style={{
-                  objectPosition: '50% 22%',
-                  WebkitMaskImage: 'linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent 0, #000 18%)',
-                  WebkitMaskComposite: 'source-in',
-                  maskImage: 'linear-gradient(to bottom, #000 70%, transparent 100%), linear-gradient(to right, transparent 0, #000 18%)',
-                  maskComposite: 'intersect',
-                }}
+                className="hero-foto h-full w-full object-cover md:absolute md:inset-0"
+                style={{ objectPosition: '50% 22%' }}
               />
             </picture>
           </div>
-          <div className="relative order-2 pb-14 md:order-1 md:self-center md:py-32">
+          <div className="relative order-1 md:self-center md:py-32">
             <p className="rotulo !text-lilas">{MEDICO.atuacao}</p>
-            <h1 className="mt-4 font-display text-[2rem] font-light leading-[1.15] text-white sm:text-4xl lg:text-5xl">{conteudo.hero_titulo}</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-lilas-200">{conteudo.hero_subtitulo}</p>
-            <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-              <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-4 py-2 text-lilas"><IconeLocal tamanho={16} /> Presencial em Teófilo Otoni e Malacacheta – MG</li>
-              {telemedicina.ativo && <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-4 py-2 text-lilas"><IconeBrasil tamanho={16} /> Online para todo o Brasil</li>}
+            <h1 className="mt-3 font-display text-[2rem] font-light leading-[1.15] text-white sm:text-4xl lg:text-5xl">{conteudo.hero_titulo}</h1>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-lilas-200 sm:mt-5 sm:text-lg">{conteudo.hero_subtitulo}</p>
+            <ul className="mt-5 flex flex-wrap gap-2 text-sm sm:mt-6">
+              <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-3 py-1.5 text-lilas sm:px-4 sm:py-2"><IconeLocal tamanho={16} /> Presencial em Teófilo Otoni e Malacacheta – MG</li>
+              {telemedicina.ativo && <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-3 py-1.5 text-lilas sm:px-4 sm:py-2"><IconeBrasil tamanho={16} /> Online para todo o Brasil</li>}
             </ul>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <BotaoAgendar modalidade="presencial" className="btn-lilas" rotulo="Hero" />
               {telemedicina.ativo && <BotaoAgendar modalidade="online" className="btn-contorno-branco" rotulo="Hero" />}
             </div>

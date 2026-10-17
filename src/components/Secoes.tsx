@@ -66,8 +66,8 @@ export function CtaFinal({ titulo = 'Pronto para começar?', texto = 'Agende sua
         <h2 className="font-display text-3xl font-light text-white md:text-4xl">{titulo}</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-lilas-200">{texto}</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          {so !== 'online' && <BotaoAgendar modalidade="presencial" className="btn-lilas" rotulo="CTA final" />}
-          {so !== 'presencial' && <BotaoAgendar modalidade="online" className="btn-contorno-branco" rotulo="CTA final" />}
+          {so !== 'online' && <BotaoAgendar modalidade="presencial" className="btn-whatsapp" rotulo="CTA final" icone>Agendar pelo WhatsApp</BotaoAgendar>}
+          {so !== 'presencial' && <BotaoAgendar modalidade="online" className={so === 'online' ? 'btn-lilas' : 'btn-contorno-branco'} rotulo="CTA final" />}
         </div>
       </div>
     </section>

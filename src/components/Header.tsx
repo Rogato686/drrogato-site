@@ -86,16 +86,17 @@ export function Header() {
             modalidade="geral"
             rotulo="Header celular"
             icone
-            className={`sm:hidden ${transparente ? 'btn-lilas' : 'btn-primario'} !min-h-[40px] !gap-1.5 !px-4 !py-2 !text-xs`}
+            className="btn-whatsapp !min-h-[40px] !gap-1.5 !px-4 !py-2 !text-xs !shadow-none sm:!hidden"
           >
             Agendar
           </BotaoAgendar>
           <BotaoAgendar
             modalidade="geral"
             rotulo="Header"
-            className={`hidden sm:inline-flex ${transparente ? 'btn-lilas' : 'btn-primario'} !min-h-[42px] !px-5 !py-2`}
+            icone
+            className="btn-whatsapp !hidden !min-h-[42px] !px-5 !py-2 !shadow-none sm:!inline-flex"
           >
-            Agendar consulta
+            <span className="whitespace-nowrap">Agendar<span className="hidden sm:max-lg:inline xl:inline"> pelo WhatsApp</span></span>
           </BotaoAgendar>
           <button
             type="button"
@@ -130,7 +131,7 @@ export function Header() {
               ))}
             </ul>
             <div className="mt-6 grid gap-3">
-              <BotaoAgendar modalidade="presencial" rotulo="Menu celular" />
+              <BotaoAgendar modalidade="presencial" rotulo="Menu celular" className="btn-whatsapp" icone>Agendar pelo WhatsApp</BotaoAgendar>
               <BotaoAgendar modalidade="online" rotulo="Menu celular" className="btn-contorno" />
             </div>
             <RedesSociais className="mt-6 justify-center" itemClass="text-marinho hover:bg-lilas-100" />

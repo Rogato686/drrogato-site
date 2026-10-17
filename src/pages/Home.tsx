@@ -88,13 +88,23 @@ export default function Home() {
               {telemedicina.ativo && <li className="inline-flex items-center gap-2 rounded-full border border-lilas/40 px-3 py-1.5 text-lilas sm:px-4 sm:py-2"><IconeBrasil tamanho={16} /> Online para todo o Brasil</li>}
             </ul>
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-              <BotaoAgendar modalidade="presencial" className="btn-lilas" rotulo="Hero" />
+              <BotaoAgendar modalidade="presencial" className="btn-whatsapp" rotulo="Hero" icone>Agendar pelo WhatsApp</BotaoAgendar>
               {telemedicina.ativo && <BotaoAgendar modalidade="online" className="btn-contorno-branco" rotulo="Hero" />}
             </div>
-            <p className="mt-6 text-xs uppercase tracking-widest text-lilas-300">{MEDICO.nomeCurto} · {MEDICO.crm} · {MEDICO.tituloCurto}</p>
           </div>
         </div>
       </section>
+
+      {/* Faixa de credenciais */}
+      <div className="border-b border-lilas-200 bg-lilas-50">
+        <p className="container-site flex flex-wrap items-center justify-center gap-x-3 gap-y-1 py-4 text-center text-sm text-marinho">
+          <span className="font-medium">{MEDICO.nomeCurto}</span>
+          <span aria-hidden="true" className="text-marinho-300">·</span>
+          <span>{MEDICO.crm}</span>
+          <span aria-hidden="true" className="text-marinho-300">·</span>
+          <span>{MEDICO.tituloCurto}</span>
+        </p>
+      </div>
 
       {/* 2. Como posso te ajudar? */}
       <section className="secao bg-white">

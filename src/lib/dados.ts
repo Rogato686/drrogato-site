@@ -1,4 +1,5 @@
 import { supabase } from './supabase'
+import { limparTexto } from './textoSeguro'
 import { DADOS_PADRAO } from './seed'
 import type { SiteData, Local, Horario } from './types'
 
@@ -47,9 +48,6 @@ export async function carregarDadosSite(): Promise<SiteData> {
   }
 }
 
-// Links perigosos (javascript:, data:, vbscript:) viram texto vazio antes de chegar a qualquer href/src.
-const PERIGOSO = /^(javascript|data|vbscript):/i
-const limparTexto = (v: string) => (PERIGOSO.test(v.replace(/[\u0000-\u0020]/g, '')) ? '' : v)
 
 function nulos<T extends Record<string, unknown>>(o: T): T {
   const r: Record<string, unknown> = {}

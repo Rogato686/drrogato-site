@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { IconeWhatsApp, IconeSetaCima, IconeX } from './Icones'
 import { linkWhatsApp } from '../lib/whatsapp'
 import { aplicar, lerConsentimento, rastrearWhatsApp, salvarConsentimento } from '../lib/analytics'
-import { Link } from 'react-router-dom'
 import { useSite } from '../lib/SiteDataContext'
 
 const MSG_POR_PAGINA: [RegExp, string][] = [

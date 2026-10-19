@@ -105,7 +105,7 @@ export default function Contato() {
   }
 
   const descr = (k: keyof Campos) => (erros[k] ? `erro-${k}` : undefined)
-  const Erro = ({ k }: { k: keyof Campos }) =>
+  const erro = (k: keyof Campos) =>
     erros[k] ? (
       <p id={`erro-${k}`} className="mt-1.5 text-sm text-red-700">
         {erros[k]}
@@ -249,7 +249,7 @@ export default function Contato() {
                   aria-invalid={!!erros.nome}
                   aria-describedby={descr('nome')}
                 />
-                <Erro k="nome" />
+                {erro('nome')}
               </div>
               <div>
                 <label htmlFor="c-tel" className="mb-1.5 block text-sm font-medium text-marinho">
@@ -270,7 +270,7 @@ export default function Contato() {
                   aria-invalid={!!erros.telefone}
                   aria-describedby={descr('telefone')}
                 />
-                <Erro k="telefone" />
+                {erro('telefone')}
               </div>
               <div>
                 <label htmlFor="c-email" className="mb-1.5 block text-sm font-medium text-marinho">
@@ -288,7 +288,7 @@ export default function Contato() {
                   aria-invalid={!!erros.email}
                   aria-describedby={descr('email')}
                 />
-                <Erro k="email" />
+                {erro('email')}
               </div>
               <div>
                 <label htmlFor="c-cidade" className="mb-1.5 block text-sm font-medium text-marinho">
@@ -328,7 +328,7 @@ export default function Contato() {
                     </label>
                   ))}
                 </div>
-                <Erro k="modalidade" />
+                {erro('modalidade')}
               </fieldset>
               <div className="sm:col-span-2">
                 <label htmlFor="c-msg" className="mb-1.5 block text-sm font-medium text-marinho">
@@ -346,7 +346,7 @@ export default function Contato() {
                   aria-invalid={!!erros.mensagem}
                   aria-describedby={descr('mensagem')}
                 />
-                <Erro k="mensagem" />
+                {erro('mensagem')}
               </div>
 
               {/* Honeypot: invisível para pessoas, tentador para robôs */}
@@ -375,7 +375,7 @@ export default function Contato() {
                     . <span aria-hidden="true">*</span>
                   </span>
                 </label>
-                <Erro k="consentimento" />
+                {erro('consentimento')}
               </div>
 
               <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">

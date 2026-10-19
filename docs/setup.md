@@ -79,7 +79,7 @@ Decisão Harness2: a falha só aparece quando a revisão ignora o prompt do proj
   - houver uma major do Tailwind, do Vite ou do React.
 
 ## Pendências e próxima entrega
-- **Envio ao GitHub:** depende da decisão do dono. Até lá, a cópia fica em `/mnt/project-files/site/app`.
+- **Envio ao GitHub:** feito em 19/10/2026, por decisão do dono.
 - **Superpowers:** o plugin vem do marketplace oficial sem versão fixa, então cada sessão pega a versão atual (risco baixo, aceito). Confirmar o carregamento na próxima sessão nova do Claude Code.
 - **Context7:** liberar `mcp.context7.com` na rede do ambiente de nuvem, ou usar fora dele.
 - **Dívida de lint** (ver `docs/quality.md`): promover regras a erro conforme zerarem; dividir `admin/Conteudo.tsx`, `admin/Locais.tsx` e `pages/Contato.tsx` quando forem mexidos.
